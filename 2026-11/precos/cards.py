@@ -106,10 +106,14 @@ def capa():
     tag(d,X,230,'BLACK NOVEMBRO')
     f=F('InterDisplay-Black.otf',84)
     for i,t in enumerate(['TABELA','DE PREÇOS','INSOLAR']): d.text((X,310+i*92),t,font=f,fill=WHITE if i<2 else GOLD)
-    f2=F('Inter-SemiBold.otf',34)
-    for i,t in enumerate(['Ache a sua conta','de luz e veja','a sua parcela']): d.text((X,620+i*46),t,font=f2,fill=SOFT)
-    d.text((X,790),'Arraste  →',font=F('Inter-Black.otf',44),fill=GREEN)
-    rodape(c,f'Oferta válida de {VAL}. Valores, parcelas e condições em cada card. Parcelas sujeitas à aprovação de crédito. Preço por sistema individual, sujeito a análise técnica.')
+    d.text((X,600),'Energia solar a partir de',font=F('Inter-SemiBold.otf',30),fill=SOFT)
+    fp=F('InterDisplay-Black.otf',104); t='R$ 203'; d.text((X-4,632),t,font=fp,fill=GOLD); wv=d.textlength(t,font=fp)
+    d.text((X+wv+4,652),',76',font=F('Inter-Black.otf',40),fill=GOLD)
+    d.text((X+wv+4,700),'/mês',font=F('Inter-Bold.otf',28),fill=GOLD)
+    d.text((X,760),'ou 12x SEM JUROS de R$ 575',font=F('Inter-Black.otf',27),fill=GREEN)
+    d.text((X,800),'no cartão',font=F('Inter-Bold.otf',27),fill=GREEN)
+    d.text((X,880),'Veja o seu kit  →',font=F('Inter-Black.otf',40),fill=WHITE)
+    rodape(c,f'*Oferta válida de {VAL}. R$ 203,76/mês: kit de 500 kWh em 120x, taxa de referência 1,55% ao mês, total a prazo R$ 24.451,20; preço à vista no Pix R$ 10.520. 12x sem juros de R$ 575: kit de 250 kWh, no cartão, conforme limite disponível. Parcelas sujeitas à aprovação de crédito, aos critérios de cada financeira, ao score e à capacidade de pagamento de cada CPF/CNPJ. Preço por sistema individual, sujeito a análise técnica.')
     c.save('out/precos/00_capa.jpg',quality=92)
 
 def final():
