@@ -92,7 +92,7 @@ def card(n,k):
     d.rounded_rectangle([X,y,X+430,y+112],radius=18,fill=(11,31,68))
     d.text((X+22,y+12),'À VISTA NO PIX',font=F('Inter-Black.otf',24),fill=(255,255,255))
     d.text((X+22,y+42),f"R$ {brl(k['pix'],False)}",font=F('InterDisplay-Black.otf',56),fill=(255,184,28))
-    legal=(f"*Oferta válida de {VAL}. Preço por sistema individual, para uma unidade consumidora, sujeito a análise técnica. "
+    legal=(f"*Oferta válida de {VAL}. Preço por sistema individual, para uma unidade consumidora, sujeito a análise técnica. Adequações exigidas pela concessionária (estudo de rede, padrão de entrada, caixa de medição) não inclusas, orçadas à parte. "
            f"Preço a prazo: R$ {brl(k['tab'],False)}. ")
     if k.get('p120'):
         legal+=(f"Parcelas sujeitas à aprovação de crédito, aos critérios de cada financeira, ao score e à capacidade de pagamento de cada CPF/CNPJ. "
@@ -113,7 +113,7 @@ def capa():
     d.text((X,760),'Comércio, indústria,',font=F('Inter-Black.otf',27),fill=GREEN)
     d.text((X,800),'fazenda e condomínio',font=F('Inter-Bold.otf',27),fill=GREEN)
     d.text((X,880),'Veja a sua usina  →',font=F('Inter-Black.otf',40),fill=WHITE)
-    rodape(c,f'*Oferta válida de {VAL}. R$ 935,79/mês: sistema de 3.000 kWh em 120x, taxa de referência 1,55% ao mês, total a prazo R$ 112.294,80; preço à vista no Pix R$ 48.300. Parcelas sujeitas à aprovação de crédito, aos critérios de cada financeira, ao score e à capacidade de pagamento de cada CPF/CNPJ. Preço por sistema individual, sujeito a análise técnica.')
+    rodape(c,f'*Oferta válida de {VAL}. R$ 935,79/mês: sistema de 3.000 kWh em 120x, taxa de referência 1,55% ao mês, total a prazo R$ 112.294,80; preço à vista no Pix R$ 48.300. Parcelas sujeitas à aprovação de crédito, aos critérios de cada financeira, ao score e à capacidade de pagamento de cada CPF/CNPJ. Preço por sistema individual, sujeito a análise técnica. Adequações exigidas pela concessionária orçadas à parte.')
     c.save('out/empresas_claro/00_capa.jpg',quality=92)
 
 def final():
