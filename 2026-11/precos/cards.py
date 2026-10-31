@@ -27,8 +27,12 @@ def base(img,x0=None):
     c.paste(Image.new('RGB',(W,H),BG),(0,0),g)
     return c
 
-def logo(c,x=56,y=48,w=190):
-    l=LOGO.resize((w,int(LOGO.height*w/LOGO.width)),Image.LANCZOS); c.paste(l,(x,y),l)
+SIMB=Image.open('simbolo.png').convert('RGBA')
+def logo(c,x=56,y=56,w=None):
+    h=86; l=SIMB.resize((int(SIMB.width*h/SIMB.height),h),Image.LANCZOS); c.paste(l,(x,y),l)
+    d=ImageDraw.Draw(c); tx=x+l.width+18
+    d.text((tx,y+4),'INSOLAR',font=F('InterDisplay-Black.otf',44),fill=WHITE)
+    d.text((tx,y+52),'BRASIL · ENERGIA SOLAR',font=F('Inter-Bold.otf',20),fill=GOLD)
 
 def wrap(d,txt,f,maxw):
     out=[];line=''
