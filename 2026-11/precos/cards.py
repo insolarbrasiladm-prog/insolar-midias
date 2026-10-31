@@ -57,7 +57,7 @@ def tag(d,x,y,txt):
     d.text((x+18,y+9),txt,font=f,fill=WHITE)
 
 def card(n,k):
-    c=base('robo_apontando_preco.png'); logo(c); d=ImageDraw.Draw(c); X=56
+    c=base('robo_apontando_placas.png'); logo(c); d=ImageDraw.Draw(c); X=56
     tag(d,X,190,'BLACK NOVEMBRO')
     d.text((X,268),'Conta de até',font=F('Inter-Medium.otf',32),fill=SOFT)
     fb=F('InterDisplay-Black.otf',100); d.text((X,300),f"{k['kwh']:,}".replace(',','.'),font=fb,fill=WHITE)
@@ -113,7 +113,7 @@ def capa():
     c.save('out/precos/00_capa.jpg',quality=92)
 
 def final():
-    c=base('robo_apontando_preco.png'); logo(c); d=ImageDraw.Draw(c); X=56
+    c=base('robo_apontando_placas.png'); logo(c); d=ImageDraw.Draw(c); X=56
     f=F('InterDisplay-Black.otf',70)
     for i,t in enumerate(['Sua conta','é maior?']): d.text((X,230+i*80),t,font=f,fill=WHITE)
     f2=F('Inter-SemiBold.otf',32)
