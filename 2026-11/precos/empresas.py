@@ -45,9 +45,9 @@ def wrap(d,txt,f,maxw):
 def rodape(c,legal):
     ov=Image.new('RGBA',(W,H),(0,0,0,0)); od=ImageDraw.Draw(ov)
     od.rectangle([0,1118,W,H],fill=(2,8,22,235)); c.paste(ov,(0,0),ov)
-    d=ImageDraw.Draw(c); f=F('Inter-Regular.otf',19); y=1134
+    d=ImageDraw.Draw(c); f=F('Inter-Regular.otf',17); y=1128
     for ln in wrap(d,legal,f,W-100):
-        d.text((50,y),ln,font=f,fill=SOFT); y+=25
+        d.text((50,y),ln,font=f,fill=SOFT); y+=22
     d.text((50,H-48),'WhatsApp (73) 3223-5102',font=F('Inter-Bold.otf',28),fill=GOLD)
     d.text((W-50,H-46),'Insolar Brasil',font=F('Inter-SemiBold.otf',24),fill=WHITE,anchor='ra')
 
@@ -78,7 +78,9 @@ def card(n,k):
         y+=320
         d.text((X,y),'12x SEM JUROS no cartão',font=F('Inter-Black.otf',27),fill=GREEN)
         d.text((X,y+34),f"de R$ {brl(k['p12'])}",font=F('Inter-Bold.otf',30),fill=WHITE)
-        y+=96
+        d.text((X,y+72),'ou até 24x no cartão, com juros',font=F('Inter-SemiBold.otf',24),fill=SOFT)
+        d.text((X,y+100),'(aceitamos Cartão BNDES)',font=F('Inter-SemiBold.otf',24),fill=SOFT)
+        y+=146
     else:
         d.text((X,y),'12x SEM JUROS no cartão',font=F('Inter-Black.otf',30),fill=GREEN)
         fp=F('InterDisplay-Black.otf',112); inteiro,cent=brl(k['p12']).split(',')
@@ -97,7 +99,7 @@ def card(n,k):
     if k.get('p120'):
         legal+=(f"Parcelas sujeitas à aprovação de crédito, aos critérios de cada financeira, ao score e à capacidade de pagamento de cada CPF/CNPJ. "
                 f"Taxa de referência: 1,39% ao mês (24x a 84x) e 1,55% ao mês (120x); total em 120x: R$ {brl(k['p120']*120)}. ")
-    legal+=f"12x sem juros no cartão conforme limite disponível. Geração estimada de {k['kwh']:,} kWh por mês, varia com o local e a sombra.".replace(f"{k['kwh']:,}",f"{k['kwh']:,}".replace(',','.'))
+    legal+=f"12x sem juros no cartão conforme limite disponível; de 13x a 24x com juros da administradora do cartão; Cartão BNDES sujeito à aprovação do banco emissor. Geração estimada de {k['kwh']:,} kWh por mês, varia com o local e a sombra.".replace(f"{k['kwh']:,}",f"{k['kwh']:,}".replace(',','.'))
     rodape(c,legal)
     c.save(f'out/empresas/{n:02d}_kit_{k["kwh"]}.jpg',quality=92)
 
