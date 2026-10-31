@@ -11,3 +11,8 @@
 ### Não usar
 - Marcadas como explícitas (E): Você é referência · Amor e Fé · Na Van
 - Áudio original de perfil (influenciador): tudo da seção "Áudio original" (ex.: Clocks - leveviolao)
+
+### Aba "Em alta" (prints 9 a 11, 31/10)
+- Aproveitar: Me Leva Junto Com Você ao vivo (Raça Negra) para sexta/pagode
+- Quase tudo em alta é "Áudio original" de perfis: NÃO usar
+- Fora do estilo da marca: Closer, Without You, YMCA, SWIM, CORNETADA, Trend do Cirilo
