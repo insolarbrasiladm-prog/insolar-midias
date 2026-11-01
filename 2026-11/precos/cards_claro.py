@@ -102,7 +102,7 @@ def card(n,k):
     c.save(f'out/precos_claro/{n:02d}_kit_{k["kwh"]}.jpg',quality=92)
 
 def capa():
-    c=base('robo_apontando_placas_dia.png'); logo(c,w=230); d=ImageDraw.Draw(c); X=56
+    c=base('robo_tablet_placas_dia.png'); logo(c,w=230); d=ImageDraw.Draw(c); X=56
     tag(d,X,230,'BLACK NOVEMBRO')
     f=F('InterDisplay-Black.otf',70)
     for i,t in enumerate(['TABELA','DE PREÇOS','INSOLAR']): d.text((X,310+i*80),t,font=f,fill=WHITE if i<2 else GOLD)
