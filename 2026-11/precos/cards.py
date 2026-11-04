@@ -5,8 +5,8 @@ FD='/usr/share/fonts/opentype/inter/'
 def F(n,s): return ImageFont.truetype(FD+n,s)
 W,H=1080,1350
 BG=(4,14,34); WHITE=(255,255,255); SOFT=(200,212,235); GOLD=(255,184,28); ORANGE=(255,122,26); GREEN=(57,230,110)
-LOGO=Image.open('logo.png').convert('RGBA')
-VAL='01/11 a 03/11/2026'
+#LOGO não usado
+VAL='04/11 a 07/11/2026'
 os.makedirs('out/precos',exist_ok=True)
 
 def brl(v,cent=True):
@@ -92,7 +92,7 @@ def card(n,k):
     d.rounded_rectangle([X,y,X+430,y+112],radius=18,fill=(255,255,255))
     d.text((X+22,y+12),'À VISTA NO PIX',font=F('Inter-Black.otf',24),fill=(11,31,68))
     d.text((X+22,y+42),f"R$ {brl(k['pix'],False)}",font=F('InterDisplay-Black.otf',56),fill=ORANGE)
-    legal=(f"*Oferta válida de {VAL}. Preço por sistema individual, para uma unidade consumidora, sujeito a análise técnica. "
+    legal=(f"*Oferta válida de {VAL}. Preço por sistema individual, para uma unidade consumidora, sujeito a análise técnica. Adequações exigidas pela concessionária (estudo de rede, padrão de entrada, caixa de medição) não inclusas, orçadas à parte. "
            f"Preço a prazo: R$ {brl(k['tab'],False)}. ")
     if k.get('p120'):
         legal+=(f"Parcelas sujeitas à aprovação de crédito, aos critérios de cada financeira, ao score e à capacidade de pagamento de cada CPF/CNPJ. "

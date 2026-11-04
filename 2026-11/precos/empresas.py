@@ -5,8 +5,8 @@ FD='/usr/share/fonts/opentype/inter/'
 def F(n,s): return ImageFont.truetype(FD+n,s)
 W,H=1080,1350
 BG=(4,14,34); WHITE=(255,255,255); SOFT=(200,212,235); GOLD=(255,184,28); ORANGE=(255,122,26); GREEN=(57,230,110)
-LOGO=Image.open('logo.png').convert('RGBA')
-VAL='01/11 a 03/11/2026'
+#LOGO não usado
+VAL='04/11 a 07/11/2026'
 os.makedirs('out/empresas',exist_ok=True)
 
 def brl(v,cent=True):
