@@ -12,7 +12,7 @@ h1,h2,h3,.disp { font-family: 'Inter Display','Inter',sans-serif; }
 .pg { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always;
   background: radial-gradient(120% 80% at 100% 0%, #123a7a 0%, rgba(18,58,122,0) 55%), radial-gradient(90% 60% at 0% 100%, #0b2a52 0%, rgba(11,42,82,0) 60%), var(--deep); }
 .pg:last-child { page-break-after: auto; }
-.grade { position:absolute; inset:0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 12mm 12mm; opacity:.35; -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,0) 70%); }
+.grade { position:absolute; inset:0; background:url(img/grade.png) 0 0/100% 100% no-repeat; }
 .topo { position:absolute; top:11mm; left:14mm; right:14mm; display:flex; justify-content:space-between; align-items:center; font-size:8pt; color:var(--mut); letter-spacing:.14em; text-transform:uppercase; z-index:5; }
 .marca { display:flex; align-items:center; gap:2.5mm; color:#fff; letter-spacing:0; text-transform:none; font-weight:700; font-size:10.5pt; }
 .marca img { height:8.5mm; }
@@ -50,7 +50,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 .ico svg { width:5.5mm; height:5.5mm; stroke:var(--neon); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .ico.ouro { background:rgba(249,185,30,.12); border-color:rgba(249,185,30,.45); }
 .ico.ouro svg { stroke:var(--gold); }
-.sfundo { position:absolute; right:-18mm; bottom:-14mm; width:95mm; opacity:.10; z-index:1; pointer-events:none; }
+.sfundo { position:absolute; right:-18mm; bottom:-14mm; width:95mm; z-index:1; pointer-events:none; }
 .sglow { filter: drop-shadow(0 0 10px rgba(61,255,143,.35)) drop-shadow(0 0 22px rgba(249,185,30,.25)); }
 .obra { position:relative; border-radius:3mm; overflow:hidden; border:1px solid rgba(160,200,255,.22); height:52mm; }
 .obra img { width:100%; height:100%; object-fit:cover; }
@@ -62,9 +62,9 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </head>
 <body>
 
-{% set marca %}<div class="marca"><img src="{{ img }}/simbolo_t.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div>{% endset %}
+{% set marca %}<div class="marca"><img src="{{ img }}/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div>{% endset %}
 {% set exemplo %}{% if d.exemplo %}<div class="selo-ex">MODELO · VALORES DE EXEMPLO</div>{% endif %}{% endset %}
-{% macro rodape(n) %}<img class="sfundo" src="{{ img }}/S_grande.png"><div class="rod"><span>Proposta nº {{ d.numero }} · {{ d.cliente }} · {{ data_br }}</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>{{ n }}/9</span></div>{% endmacro %}
+{% macro rodape(n) %}<img class="sfundo" src="{{ img }}/S_fundo.png"><div class="rod"><span>Proposta nº {{ d.numero }} · {{ d.cliente }} · {{ data_br }}</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>{{ n }}/9</span></div>{% endmacro %}
 
 <!-- 1 CAPA -->
 <section class="pg" style="background:var(--deep)">
@@ -85,7 +85,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 2 QUEM SOMOS -->
-<section class="pg"><div class="grade"></div>
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>01 · Quem somos</span></div>
   <div class="robo" style="right:0;top:0;width:88mm;height:297mm"><img src="{{ img }}/sobre.jpg" style="object-position:50% 40%"></div>
   <div style="position:absolute;right:0;top:0;width:88mm;height:297mm;z-index:3;background:linear-gradient(90deg,#06122B 0%,rgba(6,18,43,0) 35%)"></div>
@@ -105,7 +105,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- OBRAS -->
-<section class="pg"><div class="grade"></div>
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>02 · Obras reais</span></div>
   <div class="cont">
     <span class="eti">Quem vê, confia</span>
@@ -124,7 +124,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 3 SEU SISTEMA -->
-<section class="pg"><div class="grade"></div>
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>03 · Seu sistema</span></div>
   <div class="cont">
     <span class="eti">Painel do seu projeto</span>
@@ -161,9 +161,9 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 4 COMO FUNCIONA -->
-<section class="pg"><div class="grade"></div>
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>04 · Como funciona</span></div>
-  <div class="robo" style="left:0;bottom:0;width:78mm;height:150mm;-webkit-mask-image:linear-gradient(0deg,rgba(0,0,0,0) 0%,#000 18%,#000 82%,rgba(0,0,0,0) 100%)"><img src="{{ img }}/funciona.jpg" style="object-position:40% 45%"></div>
+  <div class="robo" style="left:0;bottom:0;width:78mm;height:150mm"><img src="{{ img }}/funciona.jpg" style="object-position:40% 45%"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#071634 0%,rgba(7,22,52,0) 20%,rgba(7,22,52,0) 82%,#06122B 100%),linear-gradient(270deg,#071a3c 0%,rgba(7,26,60,0) 25%)"></div></div>
   <div class="cont">
     <span class="eti">Do sol até a sua tomada</span>
     <h2>Simples por fora,<br><b>inteligente</b> por dentro.</h2>
@@ -197,9 +197,9 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 5 INVESTIMENTO -->
-<section class="pg"><div class="grade"></div>
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>05 · Seu investimento</span></div>
-  <div class="robo" style="right:0;top:0;width:78mm;height:150mm;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 30%)"><img src="{{ img }}/preco.jpg" style="object-position:55% 30%"></div>
+  <div class="robo" style="right:0;top:0;width:78mm;height:150mm"><img src="{{ img }}/preco.jpg" style="object-position:55% 30%"><div style="position:absolute;inset:0;background:linear-gradient(90deg,#0b2550 0%,rgba(11,37,80,0) 35%),linear-gradient(0deg,#0a1f45 0%,rgba(10,31,69,0) 20%)"></div></div>
   <div class="cont">
     <span class="eti">Investimento completo</span>
     <h2>Tudo incluído,<br>do projeto à <b>homologação.</b></h2>
@@ -236,7 +236,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 6 GARANTIAS E JORNADA -->
-<section class="pg"><div class="grade"></div>
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>06 · Garantias e jornada</span></div>
   <div class="cont">
     <span class="eti">Segurança do começo ao fim</span>
@@ -265,7 +265,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 7 SERVIÇOS -->
-<section class="pg"><div class="grade"></div>
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>07 · Mais soluções Insolar</span></div>
   <div class="cont">
     <span class="eti">Um ecossistema completo de energia</span>
@@ -282,9 +282,9 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 8 PRÓXIMOS PASSOS -->
-<section class="pg"><div class="grade"></div>
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>08 · Próximos passos</span></div>
-  <div class="robo" style="right:0;bottom:0;width:86mm;height:170mm;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 30%)"><img src="{{ img }}/contato.jpg" style="object-position:30% 40%"></div>
+  <div class="robo" style="right:0;bottom:0;width:86mm;height:170mm"><img src="{{ img }}/contato.jpg" style="object-position:30% 40%"><div style="position:absolute;inset:0;background:linear-gradient(90deg,#06122B 0%,rgba(6,18,43,0) 35%),linear-gradient(180deg,#06122B 0%,rgba(6,18,43,0) 15%)"></div></div>
   <div class="fala" style="right:14mm;top:96mm;width:54mm">Gostou? É só falar com a gente que eu cuido do resto!</div>
   <div class="cont" style="right:88mm">
     <span class="eti">Vamos começar?</span>
