@@ -335,7 +335,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       <div style="flex:1;border-top:1px solid #8FA3C7;padding-top:1.5mm">Assinatura do cliente<br>Data: ____/____/______</div>
       <div style="flex:1;border-top:1px solid #8FA3C7;padding-top:1.5mm">Insolar Brasil Instalação de Painéis Fotovoltaicos Ltda.<br>CNPJ 07.517.452/0001-94</div>
     </div>
-    <div class="miuda" style="margin-top:6mm">Geração estimada com média de {{ 117 }} kWh por kWp ao mês para Ilhéus e região; a geração real depende de sombra, inclinação, direção do telhado e clima. Para o dimensionamento final é indispensável a visita técnica, que avalia a estrutura e a parte elétrica; podem ser necessárias adequações para a segurança e a homologação junto à concessionária. Valores de referência, sujeitos a análise técnica. Proposta válida até {{ validade_br }}.</div>
+    <div class="miuda" style="margin-top:6mm">Geração estimada de cerca de {{ num(c.geracao_mes) }} kWh por mês para este sistema de {{ num(c.kwp,2) }} kWp (conta: cada 1 kWp instalado gera em média 117 kWh por mês em Ilhéus e região, então {{ num(c.kwp,2) }} × 117 = {{ num(c.geracao_mes) }} kWh); a geração real depende de sombra, inclinação, direção do telhado e clima. Para o dimensionamento final é indispensável a visita técnica, que avalia a estrutura e a parte elétrica; podem ser necessárias adequações para a segurança e a homologação junto à concessionária. Valores de referência, sujeitos a análise técnica. Proposta válida até {{ validade_br }}.</div>
   </div>
   {{ rodape(9 + (1 if d.especial else 0)) }}{{ exemplo }}
 </section>

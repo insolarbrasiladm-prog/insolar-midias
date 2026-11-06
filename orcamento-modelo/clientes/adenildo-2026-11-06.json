@@ -120,7 +120,7 @@
    "Nesta condição, o inversor é de 5 kW, ligado à rede, e NÃO é híbrido: não aceita bateria. Ele foi dimensionado no limite para estas 10 placas, então NÃO haverá espaço para colocar mais placas no futuro sem trocar o inversor.",
    "Para cobrir o preço apresentado, o sistema é de 6,20 kWp, com geração estimada de cerca de 725 kWh/mês. Se o senhor preferir um inversor maior, com folga para crescer ou preparado para bateria, fale com a gente que montamos essa opção com o valor revisado."
   ],
-  "miuda": "*A proposta apresentada informa 6,25 kWp, mas 10 placas de 585 W somam 5,85 kWp. **Ela exclui deslocamentos extraordinários, adequações elétricas, estrutura de fixação e proteções adicionais. Comparativo feito com base nas informações escritas na proposta apresentada pelo cliente. Geração estimada com 117 kWh por kWp ao mês; em 25 anos, já com 0,5% de desgaste ao ano. Condição válida até 09/11/2026.",
+  "miuda": "*A proposta apresentada informa 6,25 kWp, mas 10 placas de 585 W somam 5,85 kWp. **Ela exclui deslocamentos extraordinários, adequações elétricas, estrutura de fixação e proteções adicionais. Comparativo feito com base nas informações escritas na proposta apresentada pelo cliente. Geração estimada: cada 1 kWp instalado gera em média 117 kWh por mês na região (6,20 kWp × 117 = 725 kWh; 5,85 kWp × 117 = 684 kWh); em 25 anos, já com 0,5% de desgaste ao ano. Condição válida até 09/11/2026.",
   "imagem": "especial.jpg",
   "imagem_frase": "Mais energia.<br><span style=\"color:#F9B91E\">Menor preço.</span>"
  }
