@@ -12,7 +12,7 @@
  "placa_modelo": "Ronma 620 W N-Type bifacial, alta eficiência (23%)",
  "inversor_qtd": 1,
  "inversor_kw": 5,
- "inversor_modelo": "Deye 5 kW monofásico 220 V, 2 entradas, com proteção contra arco elétrico",
+ "inversor_modelo": "Deye 5 kW monofásico 220 V, ligado à rede (não é híbrido), 2 entradas, com proteção contra arco elétrico",
  "estrutura": "Estrutura em alumínio para telhado de fibrocimento, cabos solares e conectores",
  "garantia_inversor": "Conforme o fabricante (Deye)",
  "preco": 12936.84,
@@ -81,8 +81,8 @@
    ],
    [
     "Inversor",
-    "5 kW (124% de carregamento)",
-    "4 kW (146% de carregamento)"
+    "5 kW ligado à rede, no limite para estas 10 placas (124%)",
+    "4 kW ligado à rede (146%)"
    ],
    [
     "Inclusos",
@@ -117,7 +117,8 @@
   "aviso_titulo": "IMPORTANTE: O QUE MUDA EM RELAÇÃO À NOSSA PROPOSTA ANTERIOR",
   "aviso": [
    "A proposta anterior da Insolar (11 placas de 600 W, 6,60 kWp, inversor de 10 kW com folga para colocar mais placas no futuro e cerca de 800 kWh/mês informados naquela proposta) NÃO faz parte desta condição.",
-   "Para cobrir o preço apresentado, esta proposta é de 6,20 kWp, com inversor de 5 kW e geração estimada de cerca de 725 kWh/mês. Se o senhor preferir a configuração anterior, com mais folga para crescer, fale com a gente que revisamos o valor."
+   "Nesta condição, o inversor é de 5 kW, ligado à rede, e NÃO é híbrido: não aceita bateria. Ele foi dimensionado no limite para estas 10 placas, então NÃO haverá espaço para colocar mais placas no futuro sem trocar o inversor.",
+   "Para cobrir o preço apresentado, o sistema é de 6,20 kWp, com geração estimada de cerca de 725 kWh/mês. Se o senhor preferir um inversor maior, com folga para crescer ou preparado para bateria, fale com a gente que montamos essa opção com o valor revisado."
   ],
   "miuda": "*A proposta apresentada informa 6,25 kWp, mas 10 placas de 585 W somam 5,85 kWp. **Ela exclui deslocamentos extraordinários, adequações elétricas, estrutura de fixação e proteções adicionais. Comparativo feito com base nas informações escritas na proposta apresentada pelo cliente. Geração estimada com 117 kWh por kWp ao mês; em 25 anos, já com 0,5% de desgaste ao ano. Condição válida até 09/11/2026.",
   "imagem": "especial.jpg",
