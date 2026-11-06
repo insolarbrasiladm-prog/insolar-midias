@@ -1,0 +1,126 @@
+{
+ "numero": "2026-001",
+ "data": "2026-11-06",
+ "validade_dias": 3,
+ "cliente": "Sr. Adenildo",
+ "cidade": "Serra Grande, Uruçuca - BA",
+ "tipo_ligacao": "Monofásica 220 V (a confirmar na visita técnica)",
+ "telhado": "Fibrocimento",
+ "consumo_medio": null,
+ "placas_qtd": 10,
+ "placa_w": 620,
+ "placa_modelo": "Ronma 620 W N-Type bifacial, alta eficiência (23%)",
+ "inversor_qtd": 1,
+ "inversor_kw": 5,
+ "inversor_modelo": "Deye 5 kW monofásico 220 V, 2 entradas, com proteção contra arco elétrico",
+ "estrutura": "Estrutura em alumínio para telhado de fibrocimento, cabos solares e conectores",
+ "garantia_inversor": "Conforme o fabricante (Deye)",
+ "preco": 12936.84,
+ "desconto_pix": 0.05,
+ "financiamento": [
+  [
+   24,
+   0.0139
+  ],
+  [
+   36,
+   0.0139
+  ],
+  [
+   48,
+   0.0139
+  ],
+  [
+   60,
+   0.0139
+  ],
+  [
+   72,
+   0.0139
+  ],
+  [
+   84,
+   0.0139
+  ],
+  [
+   120,
+   0.0155
+  ]
+ ],
+ "data_preco_distribuidor": "06/11/2026",
+ "marcas": [
+  "Growatt",
+  "Deye",
+  "GoodWe",
+  "SMA",
+  "FoxESS",
+  "SAJ"
+ ],
+ "destaque_pix": "condição especial Black Novembro",
+ "especial": {
+  "titulo_curto": "Condição especial",
+  "etiqueta": "Black Novembro · nós cobrimos",
+  "titulo1": "Mesmas 10 placas.",
+  "titulo2": "Placas mais fortes, menor preço.",
+  "intro": "Analisamos a proposta que o senhor recebeu e preparamos uma condição para cobri-la: o mesmo número de placas, da mesma marca, porém com placas de 620 W, mais potentes, e por um valor menor no Pix.",
+  "tabela": [
+   [
+    "Placas",
+    "10 × 620 W",
+    "10 × 585 W"
+   ],
+   [
+    "Potência real",
+    "6,20 kWp",
+    "5,85 kWp*"
+   ],
+   [
+    "Geração estimada",
+    "≈ 725 kWh/mês",
+    "≈ 684 kWh/mês"
+   ],
+   [
+    "Inversor",
+    "5 kW (124% de carregamento)",
+    "4 kW (146% de carregamento)"
+   ],
+   [
+    "Inclusos",
+    "Instalação, projeto, homologação e frete",
+    "Instalação, projeto, homologação e frete, com exclusões**"
+   ],
+   [
+    "Valor no Pix",
+    "R$ 12.290,00",
+    "R$ 12.400,00"
+   ]
+  ],
+  "perda_titulo": "Com a outra proposta, o senhor deixaria de gerar",
+  "perda": [
+   [
+    "41 kWh",
+    "por mês"
+   ],
+   [
+    "246 kWh",
+    "em 6 meses"
+   ],
+   [
+    "491 kWh",
+    "em 1 ano"
+   ],
+   [
+    "11.575 kWh",
+    "em 25 anos"
+   ]
+  ],
+  "aviso_titulo": "IMPORTANTE: O QUE MUDA EM RELAÇÃO À NOSSA PROPOSTA ANTERIOR",
+  "aviso": [
+   "A proposta anterior da Insolar (11 placas de 600 W, 6,60 kWp, inversor de 10 kW com folga para colocar mais placas no futuro e cerca de 800 kWh/mês informados naquela proposta) NÃO faz parte desta condição.",
+   "Para cobrir o preço apresentado, esta proposta é de 6,20 kWp, com inversor de 5 kW e geração estimada de cerca de 725 kWh/mês. Se o senhor preferir a configuração anterior, com mais folga para crescer, fale com a gente que revisamos o valor."
+  ],
+  "miuda": "*A proposta apresentada informa 6,25 kWp, mas 10 placas de 585 W somam 5,85 kWp. **Ela exclui deslocamentos extraordinários, adequações elétricas, estrutura de fixação e proteções adicionais. Comparativo feito com base nas informações escritas na proposta apresentada pelo cliente. Geração estimada com 117 kWh por kWp ao mês; em 25 anos, já com 0,5% de desgaste ao ano. Condição válida até 09/11/2026.",
+  "imagem": "especial.jpg",
+  "imagem_frase": "Mais energia.<br><span style=\"color:#F9B91E\">Menor preço.</span>"
+ }
+}

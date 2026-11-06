@@ -64,7 +64,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 
 {% set marca %}<div class="marca"><img src="{{ img }}/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div>{% endset %}
 {% set exemplo %}{% if d.exemplo %}<div class="selo-ex">MODELO · VALORES DE EXEMPLO</div>{% endif %}{% endset %}
-{% macro rodape(n) %}<img class="sfundo" src="{{ img }}/S_fundo.png"><div class="rod"><span>Proposta nº {{ d.numero }} · {{ d.cliente }} · {{ data_br }}</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>{{ n }}/9</span></div>{% endmacro %}
+{% macro rodape(n) %}<img class="sfundo" src="{{ img }}/S_fundo.png"><div class="rod"><span>Proposta nº {{ d.numero }} · {{ d.cliente }} · {{ data_br }}</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>{{ n }}/{{ 10 if d.especial else 9 }}</span></div>{% endmacro %}
 
 <!-- 1 CAPA -->
 <section class="pg" style="background:var(--deep)">
@@ -134,8 +134,8 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
         <div class="kpis">
           <div class="vidro canto kpi"><div class="r">Potência</div><div class="v">{{ num(c.kwp,2) }}<small>kWp</small></div><div class="s">{{ d.placas_qtd }} × {{ d.placa_w }} W</div></div>
           <div class="vidro canto kpi"><div class="r">Geração média</div><div class="v">{{ num(c.geracao_mes) }}<small>kWh/mês</small></div><div class="s">estimativa para a região</div></div>
-          <div class="vidro canto kpi"><div class="r">Seu consumo médio</div><div class="v">{{ num(d.consumo_medio) }}<small>kWh/mês</small></div><div class="s">conforme a sua conta de luz</div></div>
-          <div class="vidro canto kpi"><div class="r">Geração em 1 ano</div><div class="v">{{ num(c.geracao_ano) }}<small>kWh</small></div><div class="s">≈ {{ num(100*c.geracao_mes/d.consumo_medio) }}% do seu consumo médio</div></div>
+          {% if d.consumo_medio %}<div class="vidro canto kpi"><div class="r">Seu consumo médio</div><div class="v">{{ num(d.consumo_medio) }}<small>kWh/mês</small></div><div class="s">conforme a sua conta de luz</div></div>{% else %}<div class="vidro canto kpi"><div class="r">Seu consumo médio</div><div class="v" style="font-size:15pt">A confirmar</div><div class="s">pela sua conta de luz</div></div>{% endif %}
+          <div class="vidro canto kpi"><div class="r">Geração em 1 ano</div><div class="v">{{ num(c.geracao_ano) }}<small>kWh</small></div><div class="s">{% if d.consumo_medio %}≈ {{ num(100*c.geracao_mes/d.consumo_medio) }}% do seu consumo médio{% else %}estimativa para a região{% endif %}</div></div>
         </div>
         <div class="vidro" style="margin-top:4mm;padding:2mm 1mm">
           <table>
@@ -156,7 +156,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       <div style="margin-top:3mm">{{ grafico }}</div>
     </div>
   </div>
-  <div class="fala esq" style="left:132mm;top:150mm;width:58mm">Este é o coração do seu sistema: placas, inversor e a energia que ele vai gerar.</div>
+  <div class="fala esq" style="left:138mm;top:150mm;width:52mm">Este é o coração do seu sistema: placas, inversor e a energia que ele vai gerar.</div>
   {{ rodape(4) }}{{ exemplo }}
 </section>
 
@@ -205,9 +205,12 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     <h2>Tudo incluído,<br>do projeto à <b>homologação.</b></h2>
     <div class="vidro canto" style="width:112mm;padding:5mm 6mm;margin-top:4mm;border-color:rgba(249,185,30,.5)">
       <div class="kpi" style="padding:0"><div class="r">Valor do sistema instalado</div>
-      <div class="v" style="font-size:30pt;color:var(--gold)">{{ brl(d.preco) }}</div>
+{% if d.destaque_pix %}      <div class="v" style="font-size:30pt;color:var(--gold)">{{ brl(c.pix) }}</div>
+      <div class="s">à vista no Pix · {{ d.destaque_pix }}</div></div>
+      <div style="margin-top:4mm;padding:3mm 4mm;border-radius:3mm;background:rgba(61,255,143,.1);border:1px solid rgba(61,255,143,.4)"><span style="font-size:7pt;letter-spacing:.16em;color:var(--neon)">OU NO CARTÃO EM ATÉ 12X SEM JUROS</span><div style="font-family:'Inter Display';font-size:19pt;font-weight:700;color:#fff">12x de {{ brl(c.cartao12) }}</div><div class="s" style="font-size:7.5pt;color:#AFC0DE">total no cartão {{ brl(d.preco) }}</div></div>
+{% else %}      <div class="v" style="font-size:30pt;color:var(--gold)">{{ brl(d.preco) }}</div>
       <div class="s">em até 12x sem juros no cartão de {{ brl(c.cartao12) }}</div></div>
-      <div style="margin-top:4mm;padding:3mm 4mm;border-radius:3mm;background:rgba(61,255,143,.1);border:1px solid rgba(61,255,143,.4)"><span style="font-size:7pt;letter-spacing:.16em;color:var(--neon)">À VISTA NO PIX · 5% DE DESCONTO</span><div style="font-family:'Inter Display';font-size:19pt;font-weight:700;color:#fff">{{ brl(c.pix) }}</div></div>
+      <div style="margin-top:4mm;padding:3mm 4mm;border-radius:3mm;background:rgba(61,255,143,.1);border:1px solid rgba(61,255,143,.4)"><span style="font-size:7pt;letter-spacing:.16em;color:var(--neon)">À VISTA NO PIX · 5% DE DESCONTO</span><div style="font-family:'Inter Display';font-size:19pt;font-weight:700;color:#fff">{{ brl(c.pix) }}</div></div>{% endif %}
     </div>
     <div class="fala esq" style="left:118mm;top:66mm;width:44mm;position:absolute">Aqui está o seu investimento. Escolha a forma que cabe melhor no seu bolso.</div>
     <div style="display:flex;gap:5mm;margin-top:6mm">
@@ -236,8 +239,37 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 6 GARANTIAS E JORNADA -->
+{% if d.especial %}{% set e = d.especial %}
 <section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
-  <div class="topo">{{ marca }}<span>06 · Garantias e jornada</span></div>
+  <div class="topo">{{ marca }}<span>06 · {{ e.titulo_curto }}</span></div>
+  <div class="cont">
+    <span class="eti">{{ e.etiqueta }}</span>
+    <h2>{{ e.titulo1 }}<br><b>{{ e.titulo2 }}</b></h2>
+    <div style="font-size:9.5pt;color:#C9D5EC;line-height:1.45">{{ e.intro }}</div>
+    <div class="vidro canto" style="margin-top:5mm;padding:3mm 2mm">
+      <table>
+        <tr><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">ITEM</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--neon)">ESTA PROPOSTA INSOLAR</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">PROPOSTA APRESENTADA PELO CLIENTE</th></tr>
+        {% for it, a, b in e.tabela %}<tr><td>{{ it }}</td><td><b style="color:#fff">{{ a }}</b></td><td style="color:#AFC0DE">{{ b }}</td></tr>{% endfor %}
+      </table>
+    </div>
+    <div class="vidro canto" style="margin-top:4mm;padding:4mm 5mm;border-color:rgba(249,185,30,.5)">
+      <div class="eti" style="color:var(--gold)">{{ e.perda_titulo }}</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:3mm">
+        {% for v, r in e.perda %}<div style="text-align:center"><div style="font-family:'Inter Display';font-size:17pt;font-weight:700;color:var(--gold)">{{ v }}</div><div class="miuda" style="font-size:7.5pt;color:#C9D5EC">{{ r }}</div></div>{% endfor %}
+      </div>
+    </div>
+    <div style="margin-top:4mm;padding:4mm 5mm;border-radius:3mm;background:rgba(255,255,255,.96);color:#0E2A5E">
+      <b style="font-size:7.5pt;letter-spacing:.14em;color:#c0392b">{{ e.aviso_titulo }}</b>
+      {% for t in e.aviso %}<div style="font-size:8.8pt;line-height:1.45;margin-top:1.5mm">{{ t }}</div>{% endfor %}
+    </div>
+    <div class="miuda" style="margin-top:3mm">{{ e.miuda }}</div>
+    {% if e.imagem %}<div class="vidro" style="margin-top:4mm;height:40mm;overflow:hidden;position:relative"><img src="{{ img }}/{{ e.imagem }}" style="width:100%;height:100%;object-fit:cover;object-position:50% 33%"><div style="position:absolute;right:6mm;top:50%;transform:translateY(-50%);width:80mm;text-align:right;font-family:'Inter Display';font-size:15pt;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,.7)">{{ e.imagem_frase|safe }}</div></div>{% endif %}
+  </div>
+  {{ rodape(7) }}
+</section>
+{% endif %}
+<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
+  <div class="topo">{{ marca }}<span>{{ '%02d' % (6 + (1 if d.especial else 0)) }} · Garantias e jornada</span></div>
   <div class="cont">
     <span class="eti">Segurança do começo ao fim</span>
     <h2>Nós cuidamos de <b>tudo</b><br>para você.</h2>
@@ -261,12 +293,12 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       </div>
     </div>
   </div>
-  {{ rodape(7) }}{{ exemplo }}
+  {{ rodape(7 + (1 if d.especial else 0)) }}{{ exemplo }}
 </section>
 
 <!-- 7 SERVIÇOS -->
 <section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
-  <div class="topo">{{ marca }}<span>07 · Mais soluções Insolar</span></div>
+  <div class="topo">{{ marca }}<span>{{ '%02d' % (7 + (1 if d.especial else 0)) }} · Mais soluções Insolar</span></div>
   <div class="cont">
     <span class="eti">Um ecossistema completo de energia</span>
     <h2>Muito além das<br><b>placas solares.</b></h2>
@@ -278,12 +310,12 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     </div>
     <div class="miuda" style="margin-top:4mm;font-size:7.6pt">Também fazemos: diagnóstico de contas de luz, troca de titularidade e homologação na Coelba/Neoenergia, sistemas isolados e grid zero, e aquecimento com boiler. Peça o orçamento de qualquer serviço pelo (73) 3223-5102.</div>
   </div>
-  {{ rodape(8) }}{{ exemplo }}
+  {{ rodape(8 + (1 if d.especial else 0)) }}{{ exemplo }}
 </section>
 
 <!-- 8 PRÓXIMOS PASSOS -->
 <section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
-  <div class="topo">{{ marca }}<span>08 · Próximos passos</span></div>
+  <div class="topo">{{ marca }}<span>{{ '%02d' % (8 + (1 if d.especial else 0)) }} · Próximos passos</span></div>
   <div class="robo" style="right:0;bottom:0;width:86mm;height:170mm"><img src="{{ img }}/contato.jpg" style="object-position:30% 40%"><div style="position:absolute;inset:0;background:linear-gradient(90deg,#06122B 0%,rgba(6,18,43,0) 35%),linear-gradient(180deg,#06122B 0%,rgba(6,18,43,0) 15%)"></div></div>
   <div class="fala" style="right:14mm;top:96mm;width:54mm">Gostou? É só falar com a gente que eu cuido do resto!</div>
   <div class="cont" style="right:88mm">
@@ -305,6 +337,6 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     </div>
     <div class="miuda" style="margin-top:6mm">Geração estimada com média de {{ 117 }} kWh por kWp ao mês para Ilhéus e região; a geração real depende de sombra, inclinação, direção do telhado e clima. Para o dimensionamento final é indispensável a visita técnica, que avalia a estrutura e a parte elétrica; podem ser necessárias adequações para a segurança e a homologação junto à concessionária. Valores de referência, sujeitos a análise técnica. Proposta válida até {{ validade_br }}.</div>
   </div>
-  {{ rodape(9) }}{{ exemplo }}
+  {{ rodape(9 + (1 if d.especial else 0)) }}{{ exemplo }}
 </section>
 </body></html>
