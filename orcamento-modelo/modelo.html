@@ -15,7 +15,7 @@ h1,h2,h3,.disp { font-family: 'Inter Display','Inter',sans-serif; }
 .grade { position:absolute; inset:0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 12mm 12mm; opacity:.35; -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,0) 70%); }
 .topo { position:absolute; top:11mm; left:14mm; right:14mm; display:flex; justify-content:space-between; align-items:center; font-size:8pt; color:var(--mut); letter-spacing:.14em; text-transform:uppercase; z-index:5; }
 .marca { display:flex; align-items:center; gap:2.5mm; color:#fff; letter-spacing:0; text-transform:none; font-weight:700; font-size:10.5pt; }
-.marca img { height:7mm; }
+.marca img { height:8.5mm; }
 .marca small { display:block; font-weight:500; font-size:6.5pt; color:var(--mut); letter-spacing:.12em; text-transform:uppercase; }
 .rod { position:absolute; bottom:9mm; left:14mm; right:14mm; display:flex; justify-content:space-between; font-size:7pt; color:var(--mut); border-top:1px solid var(--line); padding-top:2.5mm; z-index:5; }
 .cont { position:absolute; top:26mm; left:14mm; right:14mm; bottom:20mm; z-index:4; }
@@ -50,6 +50,13 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 .ico svg { width:5.5mm; height:5.5mm; stroke:var(--neon); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .ico.ouro { background:rgba(249,185,30,.12); border-color:rgba(249,185,30,.45); }
 .ico.ouro svg { stroke:var(--gold); }
+.sfundo { position:absolute; right:-18mm; bottom:-14mm; width:95mm; opacity:.10; z-index:1; pointer-events:none; }
+.sglow { filter: drop-shadow(0 0 10px rgba(61,255,143,.35)) drop-shadow(0 0 22px rgba(249,185,30,.25)); }
+.obra { position:relative; border-radius:3mm; overflow:hidden; border:1px solid rgba(160,200,255,.22); height:52mm; }
+.obra img { width:100%; height:100%; object-fit:cover; }
+.obra span { position:absolute; left:2mm; bottom:2mm; right:2mm; font-size:7.4pt; font-weight:600; color:#fff; background:rgba(6,18,43,.82); border:1px solid rgba(61,255,143,.45); border-radius:5mm; padding:1mm 2.5mm; }
+.marcas { display:flex; flex-wrap:wrap; gap:2.5mm; justify-content:center; }
+.marcas b { font-family:'Inter Display'; font-size:12pt; font-weight:800; letter-spacing:.04em; color:#fff; padding:2.2mm 4.5mm; border-radius:2.5mm; border:1px solid rgba(160,200,255,.22); background:rgba(255,255,255,.05); }
 .chip { display:inline-block; font-size:7pt; padding:1mm 2.5mm; border-radius:10mm; border:1px solid rgba(61,255,143,.4); color:var(--neon); letter-spacing:.06em; }
 </style>
 </head>
@@ -57,13 +64,13 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 
 {% set marca %}<div class="marca"><img src="{{ img }}/simbolo_t.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div>{% endset %}
 {% set exemplo %}{% if d.exemplo %}<div class="selo-ex">MODELO · VALORES DE EXEMPLO</div>{% endif %}{% endset %}
-{% macro rodape(n) %}<div class="rod"><span>Proposta nº {{ d.numero }} · {{ d.cliente }} · {{ data_br }}</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>{{ n }}/8</span></div>{% endmacro %}
+{% macro rodape(n) %}<img class="sfundo" src="{{ img }}/S_grande.png"><div class="rod"><span>Proposta nº {{ d.numero }} · {{ d.cliente }} · {{ data_br }}</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>{{ n }}/9</span></div>{% endmacro %}
 
 <!-- 1 CAPA -->
 <section class="pg" style="background:var(--deep)">
   <div class="robo" style="inset:0"><img src="{{ img }}/capa.jpg" style="object-position:50% 30%"></div>
   <div style="position:absolute;inset:0;z-index:3;background:linear-gradient(180deg,rgba(6,18,43,.85) 0%,rgba(6,18,43,.15) 30%,rgba(6,18,43,.2) 52%,rgba(6,18,43,.92) 72%,#06122B 100%)"></div>
-  <div class="topo">{{ marca }}<span>Proposta nº {{ d.numero }}</span></div>
+  <div class="topo" style="top:12mm"><div class="marca" style="font-size:17pt;gap:4mm"><img class="sglow" src="{{ img }}/S_grande.png" style="height:20mm"><div>Insolar Brasil<small style="font-size:7.5pt">Energia solar inteligente</small></div></div><span>Proposta nº {{ d.numero }}</span></div>
   <div style="position:absolute;left:14mm;right:14mm;bottom:22mm;z-index:5">
     <span class="eti">Estudo técnico e proposta comercial</span>
     <h1 style="font-size:40pt;line-height:1;font-weight:800;margin:3mm 0 4mm;color:#fff">Sua energia solar,<br><span style="color:var(--gold)">projetada com inteligência.</span></h1>
@@ -97,9 +104,28 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
   {{ rodape(2) }}{{ exemplo }}
 </section>
 
+<!-- OBRAS -->
+<section class="pg"><div class="grade"></div>
+  <div class="topo">{{ marca }}<span>02 · Obras reais</span></div>
+  <div class="cont">
+    <span class="eti">Quem vê, confia</span>
+    <h2>Obras <b>reais</b>, feitas<br>pela Insolar na Bahia.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm">
+      {% for n in ["Barra do Rocha - BA","Itabuna - BA","Ilhéus - BA","Ilhéus - BA","Cond. Aldeia Atlântica - Ilhéus","Malhado - Ilhéus","Salvador - BA","Piedade - Ilhéus","Ilhéus - BA"] %}
+      <div class="obra"><img src="{{ img }}/obra{{ loop.index }}.jpg"><span>📍 {{ n }}</span></div>{% endfor %}
+    </div>
+    <div class="vidro canto" style="margin-top:6mm;padding:4.5mm 5mm;text-align:center">
+      <span class="eti">Trabalhamos com marcas líderes mundiais</span>
+      <div class="marcas" style="margin-top:3.5mm">{% for m in d.marcas %}<b>{{ m }}</b>{% endfor %}</div>
+      <div class="miuda" style="margin-top:3mm">Marcas de inversores e equipamentos com que trabalhamos. O modelo do seu sistema está na página 4.</div>
+    </div>
+  </div>
+  {{ rodape(3) }}{{ exemplo }}
+</section>
+
 <!-- 3 SEU SISTEMA -->
 <section class="pg"><div class="grade"></div>
-  <div class="topo">{{ marca }}<span>02 · Seu sistema</span></div>
+  <div class="topo">{{ marca }}<span>03 · Seu sistema</span></div>
   <div class="cont">
     <span class="eti">Painel do seu projeto</span>
     <h2>O sistema ideal<br>para o seu <b>consumo.</b></h2>
@@ -131,12 +157,12 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     </div>
   </div>
   <div class="fala esq" style="left:132mm;top:150mm;width:58mm">Este é o coração do seu sistema: placas, inversor e a energia que ele vai gerar.</div>
-  {{ rodape(3) }}{{ exemplo }}
+  {{ rodape(4) }}{{ exemplo }}
 </section>
 
 <!-- 4 COMO FUNCIONA -->
 <section class="pg"><div class="grade"></div>
-  <div class="topo">{{ marca }}<span>03 · Como funciona</span></div>
+  <div class="topo">{{ marca }}<span>04 · Como funciona</span></div>
   <div class="robo" style="left:0;bottom:0;width:78mm;height:150mm;-webkit-mask-image:linear-gradient(0deg,rgba(0,0,0,0) 0%,#000 18%,#000 82%,rgba(0,0,0,0) 100%)"><img src="{{ img }}/funciona.jpg" style="object-position:40% 45%"></div>
   <div class="cont">
     <span class="eti">Do sol até a sua tomada</span>
@@ -166,13 +192,13 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       {% endfor %}
     </div>
   </div>
-  <div class="fala" style="left:14mm;top:140mm;width:44mm">Sem bateria, o sistema funciona ligado à rede. Quer guardar energia? Veja a página 7.</div>
-  {{ rodape(4) }}{{ exemplo }}
+  <div class="fala" style="left:14mm;top:140mm;width:44mm">Sem bateria, o sistema funciona ligado à rede. Quer guardar energia? Veja a página 8.</div>
+  {{ rodape(5) }}{{ exemplo }}
 </section>
 
 <!-- 5 INVESTIMENTO -->
 <section class="pg"><div class="grade"></div>
-  <div class="topo">{{ marca }}<span>04 · Seu investimento</span></div>
+  <div class="topo">{{ marca }}<span>05 · Seu investimento</span></div>
   <div class="robo" style="right:0;top:0;width:78mm;height:150mm;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 30%)"><img src="{{ img }}/preco.jpg" style="object-position:55% 30%"></div>
   <div class="cont">
     <span class="eti">Investimento completo</span>
@@ -203,14 +229,15 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       {% for t,s in [("Pix","5% de desconto"),("Cartão","12x sem juros"),("Financiamento","até 120x"),("Cartão BNDES","aceito")] %}
       <div class="vidro" style="padding:3.5mm;text-align:center"><b style="font-size:10pt;color:var(--gold)">{{ t }}</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">{{ s }}</div></div>{% endfor %}
     </div>
+    <div style="margin-top:4mm;background:#fff;border-radius:3mm;padding:3mm 5mm;display:flex;align-items:center;gap:5mm"><span style="font-size:7pt;letter-spacing:.14em;color:#0E2A5E;font-weight:700;width:30mm;line-height:1.3">FINANCIAMENTO COM BANCOS PARCEIROS</span><img src="{{ img }}/bancos.png" style="height:15mm;flex:1;object-fit:contain"></div>
     <div class="miuda" style="position:absolute;bottom:0;left:0;right:0">*Parcelas sujeitas à aprovação de crédito, aos critérios de cada banco, ao score e à capacidade de pagamento de cada CPF/CNPJ. Cartão em até 24x com juros da administradora; aceitamos Cartão BNDES. Valores de referência, sujeitos a análise técnica. Adequações exigidas pela concessionária (padrão de entrada, caixa de medição, estudo de rede) e troca de titularidade não estão incluídas e são orçadas à parte. Preço dos equipamentos consultado em {{ d.data_preco_distribuidor }}; proposta válida até {{ validade_br }}.</div>
   </div>
-  {{ rodape(5) }}{{ exemplo }}
+  {{ rodape(6) }}{{ exemplo }}
 </section>
 
 <!-- 6 GARANTIAS E JORNADA -->
 <section class="pg"><div class="grade"></div>
-  <div class="topo">{{ marca }}<span>05 · Garantias e jornada</span></div>
+  <div class="topo">{{ marca }}<span>06 · Garantias e jornada</span></div>
   <div class="cont">
     <span class="eti">Segurança do começo ao fim</span>
     <h2>Nós cuidamos de <b>tudo</b><br>para você.</h2>
@@ -234,12 +261,12 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       </div>
     </div>
   </div>
-  {{ rodape(6) }}{{ exemplo }}
+  {{ rodape(7) }}{{ exemplo }}
 </section>
 
 <!-- 7 SERVIÇOS -->
 <section class="pg"><div class="grade"></div>
-  <div class="topo">{{ marca }}<span>06 · Mais soluções Insolar</span></div>
+  <div class="topo">{{ marca }}<span>07 · Mais soluções Insolar</span></div>
   <div class="cont">
     <span class="eti">Um ecossistema completo de energia</span>
     <h2>Muito além das<br><b>placas solares.</b></h2>
@@ -251,12 +278,12 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     </div>
     <div class="miuda" style="margin-top:4mm;font-size:7.6pt">Também fazemos: diagnóstico de contas de luz, troca de titularidade e homologação na Coelba/Neoenergia, sistemas isolados e grid zero, e aquecimento com boiler. Peça o orçamento de qualquer serviço pelo (73) 3223-5102.</div>
   </div>
-  {{ rodape(7) }}{{ exemplo }}
+  {{ rodape(8) }}{{ exemplo }}
 </section>
 
 <!-- 8 PRÓXIMOS PASSOS -->
 <section class="pg"><div class="grade"></div>
-  <div class="topo">{{ marca }}<span>07 · Próximos passos</span></div>
+  <div class="topo">{{ marca }}<span>08 · Próximos passos</span></div>
   <div class="robo" style="right:0;bottom:0;width:86mm;height:170mm;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 30%)"><img src="{{ img }}/contato.jpg" style="object-position:30% 40%"></div>
   <div class="fala" style="right:14mm;top:96mm;width:54mm">Gostou? É só falar com a gente que eu cuido do resto!</div>
   <div class="cont" style="right:88mm">
@@ -268,7 +295,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       {% endfor %}
     </div>
     <div class="vidro canto" style="margin-top:6mm;padding:5mm;border-color:rgba(249,185,30,.5)">
-      <div class="eti" style="color:var(--gold)">Fale com o comercial</div>
+      <img class="sglow" src="{{ img }}/S_grande.png" style="position:absolute;right:5mm;top:4mm;height:22mm"><div class="eti" style="color:var(--gold)">Fale com o comercial</div>
       <div style="font-family:'Inter Display';font-size:24pt;font-weight:800;color:#fff;margin-top:1.5mm">(73) 3223-5102</div>
       <div style="font-size:8.6pt;color:#C9D5EC;margin-top:1mm;line-height:1.5">insolarbrasil.com.br · @insolarbrasil<br>comercial@insolarbrasil.com.br</div>
     </div>
@@ -278,6 +305,6 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     </div>
     <div class="miuda" style="margin-top:6mm">Geração estimada com média de {{ 117 }} kWh por kWp ao mês para Ilhéus e região; a geração real depende de sombra, inclinação, direção do telhado e clima. Para o dimensionamento final é indispensável a visita técnica, que avalia a estrutura e a parte elétrica; podem ser necessárias adequações para a segurança e a homologação junto à concessionária. Valores de referência, sujeitos a análise técnica. Proposta válida até {{ validade_br }}.</div>
   </div>
-  {{ rodape(8) }}{{ exemplo }}
+  {{ rodape(9) }}{{ exemplo }}
 </section>
 </body></html>
