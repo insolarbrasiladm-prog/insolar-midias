@@ -1,0 +1,23 @@
+{
+  "exemplo": true,
+  "numero": "2026-000",
+  "data": "2026-11-06",
+  "validade_dias": 3,
+  "cliente": "Nome do Cliente",
+  "cidade": "Ilhéus - BA",
+  "tipo_ligacao": "Monofásica 220 V",
+  "telhado": "Fibrocimento",
+  "consumo_medio": 750,
+  "placas_qtd": 11,
+  "placa_w": 600,
+  "placa_modelo": "Painel solar monocristalino 600 W",
+  "inversor_qtd": 1,
+  "inversor_kw": 10,
+  "inversor_modelo": "Inversor ligado à rede 10 kW - 220 V",
+  "estrutura": "Estrutura de alumínio para fibrocimento",
+  "garantia_inversor": "7 a 12 anos, conforme o fabricante",
+  "preco": 17540.24,
+  "desconto_pix": 0.05,
+  "financiamento": [[24, 0.0139], [36, 0.0139], [48, 0.0139], [60, 0.0139], [72, 0.0139], [84, 0.0139], [120, 0.0155]],
+  "data_preco_distribuidor": "04/11/2026"
+}
