@@ -80,6 +80,21 @@ def gerar(dados_path, saida):
                    check=True, capture_output=True)
     return c
 
+def capa_whatsapp(pdf):
+    """Imagem QUADRADA 1080x1080 da capa, para mandar no WhatsApp antes do PDF
+    (regra: foto com texto no WhatsApp = quadrada, nada cortado)."""
+    from PIL import Image
+    base = os.path.splitext(os.path.abspath(pdf))[0]
+    subprocess.run(["pdftoppm", "-r", "200", "-png", "-f", "1", "-l", "1", "-singlefile", pdf, base + "_capa"], check=True, capture_output=True)
+    im = Image.open(base + "_capa.png").convert("RGB")
+    S = 1080; h = S - 40; w = int(im.width * h / im.height)
+    out = Image.new("RGB", (S, S), im.getpixel((10, 10)))
+    out.paste(im.resize((w, h), Image.LANCZOS), ((S - w) // 2, 20))
+    dest = os.path.join(os.path.dirname(base), "Capa WhatsApp - " + os.path.basename(base) + ".jpg")
+    out.save(dest, quality=90); os.remove(base + "_capa.png")
+    return dest
+
 if __name__ == "__main__":
     c = gerar(sys.argv[1], sys.argv[2])
+    print("Capa para WhatsApp:", capa_whatsapp(sys.argv[2]))
     print(json.dumps({k: v for k, v in c.items() if k != "acum"}, ensure_ascii=False, indent=1, default=str))
