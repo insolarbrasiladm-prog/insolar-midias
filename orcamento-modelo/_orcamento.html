@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Proposta Insolar Brasil 2026-003</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --navy:#0E2A5E; --deep:#06122B; --deep2:#0A1B3F; --gold:#F9B91E; --neon:#3DFF8F; --txt:#E8EEF9; --mut:#8FA3C7; --line:rgba(120,170,255,.16); }
+html, body { font-family: 'Inter', sans-serif; color: var(--txt); background: var(--deep); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1,h2,h3,.disp { font-family: 'Inter Display','Inter',sans-serif; }
+.pg { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always;
+  background: radial-gradient(120% 80% at 100% 0%, #123a7a 0%, rgba(18,58,122,0) 55%), radial-gradient(90% 60% at 0% 100%, #0b2a52 0%, rgba(11,42,82,0) 60%), var(--deep); }
+.pg:last-child { page-break-after: auto; }
+.grade { position:absolute; inset:0; background:url(img/grade.png) 0 0/100% 100% no-repeat; }
+.topo { position:absolute; top:11mm; left:14mm; right:14mm; display:flex; justify-content:space-between; align-items:center; font-size:8pt; color:var(--mut); letter-spacing:.14em; text-transform:uppercase; z-index:5; }
+.marca { display:flex; align-items:center; gap:2.5mm; color:#fff; letter-spacing:0; text-transform:none; font-weight:700; font-size:10.5pt; }
+.marca img { height:8.5mm; }
+.marca small { display:block; font-weight:500; font-size:6.5pt; color:var(--mut); letter-spacing:.12em; text-transform:uppercase; }
+.rod { position:absolute; bottom:9mm; left:14mm; right:14mm; display:flex; justify-content:space-between; font-size:7pt; color:var(--mut); border-top:1px solid var(--line); padding-top:2.5mm; z-index:5; }
+.cont { position:absolute; top:26mm; left:14mm; right:14mm; bottom:20mm; z-index:4; }
+.eti { display:inline-flex; align-items:center; gap:2mm; font-size:7.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--neon); font-weight:600; }
+.eti:before { content:""; width:6mm; height:2px; background:var(--neon); box-shadow:0 0 6px var(--neon); }
+h2 { font-size:25pt; line-height:1.05; font-weight:700; margin:2.5mm 0 4mm; color:#fff; }
+h2 b { color:var(--gold); }
+p.lead { font-size:10pt; line-height:1.55; color:#C9D5EC; }
+.vidro { background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border:1px solid rgba(160,200,255,.18); border-radius:4mm; position:relative; }
+.vidro.canto:before, .vidro.canto:after { content:""; position:absolute; width:5mm; height:5mm; border-color:var(--neon); border-style:solid; }
+.vidro.canto:before { top:-1px; left:-1px; border-width:2px 0 0 2px; border-radius:4mm 0 0 0; }
+.vidro.canto:after { bottom:-1px; right:-1px; border-width:0 2px 2px 0; border-radius:0 0 4mm 0; }
+.robo { position:absolute; z-index:3; }
+.robo img { width:100%; height:100%; object-fit:cover; }
+.fala { position:absolute; z-index:6; background:#fff; color:var(--navy); font-size:9pt; font-weight:600; line-height:1.35; padding:3mm 4mm; border-radius:4mm; box-shadow:0 0 0 1.5px var(--neon), 0 6px 22px rgba(0,0,0,.45); }
+.fala:before { content:"ASSISTENTE INSOLAR"; display:block; font-size:6pt; letter-spacing:.18em; color:#16a865; margin-bottom:1mm; }
+.fala.esq:after { content:""; position:absolute; left:-3mm; top:5mm; border:3mm solid transparent; border-right-color:#fff; border-left:0; }
+.fala.dir:after { content:""; position:absolute; right:-3mm; top:5mm; border:3mm solid transparent; border-left-color:#fff; border-right:0; }
+.selo-ex { position:absolute; z-index:20; top:118mm; left:-20mm; width:250mm; text-align:center; transform:rotate(-28deg); font-size:30pt; font-weight:800; color:rgba(255,80,80,.22); letter-spacing:.08em; pointer-events:none; }
+.kpis { display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; }
+.kpi { padding:4mm 4.5mm; }
+.kpi .r { font-size:7pt; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); }
+.kpi .v { font-family:'Inter Display'; font-size:21pt; font-weight:700; color:#fff; margin-top:1mm; }
+.kpi .v small { font-size:10pt; color:var(--neon); font-weight:600; margin-left:1mm; }
+.kpi .s { font-size:7.5pt; color:#AFC0DE; margin-top:.6mm; }
+table { width:100%; border-collapse:collapse; font-size:8.8pt; }
+td, th { padding:2.6mm 3mm; text-align:left; border-bottom:1px solid var(--line); }
+th { font-size:6.8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); font-weight:600; }
+td.n { text-align:right; font-variant-numeric:tabular-nums; }
+.miuda { font-size:6.8pt; line-height:1.45; color:var(--mut); }
+.ico { width:9mm; height:9mm; border-radius:2.5mm; display:flex; align-items:center; justify-content:center; background:rgba(61,255,143,.1); border:1px solid rgba(61,255,143,.35); flex:none; }
+.ico svg { width:5.5mm; height:5.5mm; stroke:var(--neon); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.ico.ouro { background:rgba(249,185,30,.12); border-color:rgba(249,185,30,.45); }
+.ico.ouro svg { stroke:var(--gold); }
+.sfundo { position:absolute; right:-18mm; bottom:-14mm; width:95mm; z-index:1; pointer-events:none; }
+.sglow { filter: drop-shadow(0 0 10px rgba(61,255,143,.35)) drop-shadow(0 0 22px rgba(249,185,30,.25)); }
+.obra { position:relative; border-radius:3mm; overflow:hidden; border:1px solid rgba(160,200,255,.22); height:52mm; }
+.obra img { width:100%; height:100%; object-fit:cover; }
+.obra span { position:absolute; left:2mm; bottom:2mm; right:2mm; font-size:7.4pt; font-weight:600; color:#fff; background:rgba(6,18,43,.82); border:1px solid rgba(61,255,143,.45); border-radius:5mm; padding:1mm 2.5mm; }
+.marcas { display:flex; flex-wrap:wrap; gap:2.5mm; justify-content:center; }
+.marcas b { font-family:'Inter Display'; font-size:12pt; font-weight:800; letter-spacing:.04em; color:#fff; padding:2.2mm 4.5mm; border-radius:2.5mm; border:1px solid rgba(160,200,255,.22); background:rgba(255,255,255,.05); }
+.chip { display:inline-block; font-size:7pt; padding:1mm 2.5mm; border-radius:10mm; border:1px solid rgba(61,255,143,.4); color:var(--neon); letter-spacing:.06em; }
+</style>
+</head>
+<body>
+
+
+
+
+
+<!-- 1 CAPA -->
+<section class="pg" style="background:var(--deep)">
+  <div class="robo" style="inset:0"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/capa.jpg" style="object-position:50% 30%"></div>
+  <div style="position:absolute;inset:0;z-index:3;background:linear-gradient(180deg,rgba(6,18,43,.85) 0%,rgba(6,18,43,.15) 30%,rgba(6,18,43,.2) 52%,rgba(6,18,43,.92) 72%,#06122B 100%)"></div>
+  <div class="topo" style="top:12mm"><div class="marca" style="font-size:17pt;gap:4mm"><img class="sglow" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png" style="height:20mm"><div>Insolar Brasil<small style="font-size:7.5pt">Energia solar inteligente</small></div></div><span>Proposta nº 2026-003</span></div>
+  <div style="position:absolute;left:14mm;right:14mm;bottom:22mm;z-index:5">
+    <span class="eti">Estudo técnico e proposta comercial</span>
+    <h1 style="font-size:40pt;line-height:1;font-weight:800;margin:3mm 0 4mm;color:#fff">Sua energia solar,<br><span style="color:var(--gold)">projetada com inteligência.</span></h1>
+    <div style="display:flex;gap:4mm;margin-top:6mm">
+      <div class="vidro canto kpi" style="flex:1.2"><div class="r">Preparada para</div><div class="v" style="font-size:16pt">Dona Auristela</div><div class="s">Ilhéus - BA</div></div>
+      <div class="vidro canto kpi" style="flex:1"><div class="r">Seu sistema atual</div><div class="v">4,40<small>kWp</small></div><div class="s">8 placas de 550 W já instaladas</div></div>
+      <div class="vidro canto kpi" style="flex:1"><div class="r">Energia guardada</div><div class="v">5 a 10<small>kWh</small></div><div class="s">2 opções de bateria</div></div>
+
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:5mm;font-size:8pt;color:var(--mut)"><span>Emitida em 07/11/2026 · válida até 09/11/2026</span><span>Mais de 7 anos de experiência · Centenas de instalações homologadas na Bahia</span></div>
+  </div>
+  
+</section>
+
+<!-- 2 QUEM SOMOS -->
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>01 · Quem somos</span></div>
+  <div class="robo" style="right:0;top:0;width:88mm;height:297mm"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/sobre.jpg" style="object-position:50% 40%"></div>
+  <div style="position:absolute;right:0;top:0;width:88mm;height:297mm;z-index:3;background:linear-gradient(90deg,#06122B 0%,rgba(6,18,43,0) 35%)"></div>
+  <div class="fala dir" style="right:62mm;top:44mm;width:58mm">Olá! Eu sou o assistente da Insolar. Vou te mostrar, página por página, o sistema que preparamos para você.</div>
+  <div class="cont" style="right:96mm">
+    <span class="eti" style="margin-top:42mm">Por que a Insolar Brasil</span>
+    <h2>Tecnologia solar<br>feita para <b>durar.</b></h2>
+    <p class="lead">Somos uma equipe técnica especializada, apaixonada pela energia solar e pela tecnologia. Unimos a força do sol da Bahia a equipamentos de primeira linha para entregar sistemas seguros, bem projetados e homologados junto à concessionária.</p>
+    <div style="display:grid;gap:3mm;margin-top:7mm">
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:center"><div class="ico ouro"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.5l7.1-.6z"/></svg></div><div><b style="font-size:10pt">Mais de 7 anos de experiência</b><div class="miuda" style="font-size:7.8pt">Centenas de instalações homologadas e instaladas em dezenas de cidades na Bahia.</div></div></div>
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div><div><b style="font-size:10pt">Nota fiscal no seu nome</b><div class="miuda" style="font-size:7.8pt">Equipamentos comprados de grandes distribuidores nacionais, com nota fiscal em nome do cliente.</div></div></div>
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div><b style="font-size:10pt">Projeto e homologação completos</b><div class="miuda" style="font-size:7.8pt">Cuidamos do projeto e de toda a papelada junto à Coelba/Neoenergia.</div></div></div>
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg></div><div><b style="font-size:10pt">Energia limpa e sustentável</b><div class="miuda" style="font-size:7.8pt">Menos dependência da rede e um futuro mais limpo para os nossos filhos.</div></div></div>
+    </div>
+  </div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>2/10</span></div>
+</section>
+
+<!-- OBRAS -->
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>02 · Obras reais</span></div>
+  <div class="cont">
+    <span class="eti">Quem vê, confia</span>
+    <h2>Obras <b>reais</b>, feitas<br>pela Insolar na Bahia.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm">
+      
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra1.jpg"><span>📍 Barra do Rocha - BA</span></div>
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra2.jpg"><span>📍 Itabuna - BA</span></div>
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra3.jpg"><span>📍 Ilhéus - BA</span></div>
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra4.jpg"><span>📍 Ilhéus - BA</span></div>
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra5.jpg"><span>📍 Cond. Aldeia Atlântica - Ilhéus</span></div>
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra6.jpg"><span>📍 Malhado - Ilhéus</span></div>
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra7.jpg"><span>📍 Salvador - BA</span></div>
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra8.jpg"><span>📍 Piedade - Ilhéus</span></div>
+      <div class="obra"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/obra9.jpg"><span>📍 Ilhéus - BA</span></div>
+    </div>
+    <div class="vidro canto" style="margin-top:6mm;padding:4.5mm 5mm;text-align:center">
+      <span class="eti">Trabalhamos com marcas líderes mundiais</span>
+      <div class="marcas" style="margin-top:3.5mm"><b>Growatt</b><b>Deye</b><b>GoodWe</b><b>SMA</b><b>FoxESS</b><b>SAJ</b></div>
+      <div class="miuda" style="margin-top:3mm">Marcas de inversores e equipamentos com que trabalhamos. O modelo do seu sistema está na página 4.</div>
+    </div>
+  </div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>3/10</span></div>
+</section>
+
+<!-- 3 SEU SISTEMA -->
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>03 · Seu sistema com bateria</span></div>
+  <div class="cont">
+    <span class="eti">Nova fase da sua energia solar</span>
+    <h2>Sua energia guardada<br>para quando <b>faltar luz.</b></h2>
+    <div style="display:flex;gap:5mm">
+      <div style="flex:1">
+        <div class="kpis">
+          <div class="vidro canto kpi"><div class="r">Seu sistema atual</div><div class="v">4,40<small>kWp</small></div><div class="s">8 × 550 W · continua igual</div></div>
+          <div class="vidro canto kpi"><div class="r">Novo inversor híbrido</div><div class="v">5<small>kW</small></div><div class="s">trabalha junto com o seu inversor atual</div></div>
+          <div class="vidro canto kpi"><div class="r">Opção 1</div><div class="v">5<small>kWh</small></div><div class="s">1 bateria · cerca de 12 horas do essencial</div></div><div class="vidro canto kpi"><div class="r">Opção 2</div><div class="v">10<small>kWh</small></div><div class="s">2 baterias · cerca de 24 horas do essencial</div></div>
+        </div>
+        <div class="vidro" style="margin-top:4mm;padding:2mm 1mm">
+          <table>
+            <tr><th>Equipamento</th><th>Descrição</th><th style="text-align:right">Qtd</th></tr>
+            <tr><td>Inversor híbrido</td><td>Deye SUN-5K-SG06LP1 híbrido 5 kW monofásico 220 V, com acoplamento ao seu inversor atual</td><td class="n">1</td></tr>
+            <tr><td>Bateria</td><td>Felicity Solar FLA48100, lítio ferro fosfato (LiFePO4), 48 V 100 Ah, 5 kWh utilizáveis, 6.000 ciclos</td><td class="n">1 ou 2</td></tr>
+            <tr><td>Quadro essencial</td><td>Quadro separado para os circuitos essenciais, cabos, disjuntores e proteções da bateria</td><td class="n">1</td></tr>
+            <tr><td>Já instalado</td><td>Inversor Deye 4 kW monofásico 220 V (já instalado) + 8 placas de 550 W</td><td class="n">—</td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="width:56mm;height:118mm;position:relative;flex:none">
+        <div class="vidro" style="position:absolute;inset:0;overflow:hidden"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/servicos.jpg" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%"></div>
+      </div>
+    </div>
+    <div class="vidro canto" style="margin-top:5mm;padding:4mm 5mm">
+      <span class="eti">Como funciona quando a luz da rua cai</span>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-top:3mm;font-size:8.8pt;line-height:1.45;color:#C9D5EC">
+        <div><b style="color:#fff;font-size:10pt">1. Falta energia</b><br>Em poucos instantes o sistema passa a usar a bateria, sem a senhora precisar fazer nada.</div>
+        <div><b style="color:#fff;font-size:10pt">2. A casa segue ligada</b><br>Geladeira, lâmpadas, TV, internet e ventiladores continuam funcionando normalmente.</div>
+        <div><b style="color:#fff;font-size:10pt">3. O sol recarrega</b><br>De dia, as suas placas continuam gerando e recarregam a bateria, mesmo sem a rede.</div>
+      </div>
+      <div class="miuda" style="margin-top:3mm">Autonomia estimada considerando os aparelhos essenciais gastando juntos, em média, cerca de 350 W (geladeira, lâmpadas, TV, internet e ventiladores): cerca de 13 horas com 1 bateria e cerca de 27 horas com 2 baterias. Com 1 bateria, o ideal é usar até 2.500 W ao mesmo tempo; com 2 baterias, até 5.000 W. Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria.</div>
+    </div>
+  </div>
+  <div class="fala esq" style="left:138mm;top:150mm;width:52mm">Seu sistema continua o mesmo. Agora ele ganha uma reserva de energia para os dias de falta de luz.</div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>4/10</span></div>
+</section>
+
+<!-- 4 COMO FUNCIONA -->
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>04 · Como funciona</span></div>
+  <div class="robo" style="left:0;bottom:0;width:78mm;height:150mm"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/funciona.jpg" style="object-position:40% 45%"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#071634 0%,rgba(7,22,52,0) 20%,rgba(7,22,52,0) 82%,#06122B 100%),linear-gradient(270deg,#071a3c 0%,rgba(7,26,60,0) 25%)"></div></div>
+  <div class="cont">
+    <span class="eti">Do sol até a sua tomada</span>
+    <h2>Simples por fora,<br><b>inteligente</b> por dentro.</h2>
+    <svg viewBox="0 0 520 250" style="width:100%;margin-top:2mm" xmlns="http://www.w3.org/2000/svg" font-family="Inter" >
+      <defs><marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3DFF8F"/></marker></defs>
+      <g fill="none" stroke-width="2">
+        <circle cx="48" cy="58" r="26" stroke="#F9B91E"/><g stroke="#F9B91E"><path d="M48 18v-10M48 108v-10M8 58h-6M98 58h-6M20 30l-6-6M76 86l6 6M76 30l6-6M20 86l-6 6"/></g>
+        <rect x="140" y="30" width="96" height="58" rx="6" stroke="#8FB8FF"/><path d="M140 49h96M140 69h96M172 30v58M204 30v58" stroke="#8FB8FF" opacity=".6"/>
+        <rect x="300" y="28" width="62" height="78" rx="8" stroke="#3DFF8F"/><path d="M314 50h34M314 62h22" stroke="#3DFF8F"/>
+        <path d="M420 70l44-34 44 34v66h-88z" stroke="#fff"/><rect x="452" y="100" width="24" height="36" stroke="#fff"/>
+        <rect x="300" y="170" width="62" height="44" rx="6" stroke="#F9B91E"/><path d="M314 192h34" stroke="#F9B91E"/>
+        <path d="M150 230l14-60 14 60M154 214h20M157 196h14" stroke="#8FA3C7"/>
+        <path d="M80 58H134" stroke="#3DFF8F" stroke-dasharray="5 5" marker-end="url(#m)"/>
+        <path d="M240 59H294" stroke="#3DFF8F" marker-end="url(#m)"/>
+        <path d="M366 67H414" stroke="#3DFF8F" marker-end="url(#m)"/>
+        <path d="M331 110V164" stroke="#3DFF8F" marker-end="url(#m)"/>
+        <path d="M296 192H190" stroke="#3DFF8F" stroke-dasharray="5 4" marker-end="url(#m)"/>
+      </g>
+      <g font-size="10" font-weight="700" fill="#fff" text-anchor="middle">
+        <text x="48" y="112">SOL</text><text x="188" y="104">PLACAS</text><text x="331" y="124" text-anchor="start" x2="0" dx="8">INVERSOR</text><text x="464" y="152">SUA CASA</text><text x="331" y="230">MEDIDOR</text><text x="164" y="246">REDE</text>
+      </g>
+    </svg>
+    <div style="margin-left:72mm;display:grid;gap:3mm;margin-top:3mm">
+      
+      <div class="vidro" style="padding:3.2mm 4mm"><b style="font-size:9.5pt;color:#fff">1. As placas captam a luz do sol</b><div class="miuda" style="font-size:8pt;color:#B7C6E2;margin-top:.6mm">E transformam essa luz em energia elétrica, todos os dias.</div></div>
+      
+      <div class="vidro" style="padding:3.2mm 4mm"><b style="font-size:9.5pt;color:#fff">2. O inversor converte a energia</b><div class="miuda" style="font-size:8pt;color:#B7C6E2;margin-top:.6mm">Deixa a energia pronta para ser usada nos aparelhos da sua casa ou empresa.</div></div>
+      
+      <div class="vidro" style="padding:3.2mm 4mm"><b style="font-size:9.5pt;color:#fff">3. Você usa a energia na hora</b><div class="miuda" style="font-size:8pt;color:#B7C6E2;margin-top:.6mm">O que é gerado de dia abastece o seu consumo naquele momento.</div></div>
+      
+      <div class="vidro" style="padding:3.2mm 4mm"><b style="font-size:9.5pt;color:#fff">4. A sobra vira crédito</b><div class="miuda" style="font-size:8pt;color:#B7C6E2;margin-top:.6mm">A energia que sobra vai para a rede pelo medidor e vira crédito na concessionária, conforme as regras em vigor.</div></div>
+      
+    </div>
+  </div>
+  <div class="fala" style="left:14mm;top:140mm;width:44mm">Com a bateria, quando a rede cai, a sua casa continua com energia.</div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>5/10</span></div>
+</section>
+
+<!-- 5 INVESTIMENTO -->
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>05 · Seu investimento</span></div>
+  <div class="cont">
+    <span class="eti">Investimento completo</span>
+    <h2>Duas opções,<br>do projeto à <b>instalação.</b></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:4mm">
+      <div class="vidro canto" style="padding:5mm 6mm;border-color:rgba(249,185,30,.5)">
+        <span class="eti">Opção 1 · 5 kWh</span>
+        <div style="font-size:9pt;color:#C9D5EC;margin-top:1mm">1 bateria · cerca de 12 horas do essencial</div>
+        <div class="kpi" style="padding:0;margin-top:3mm"><div class="r">À vista</div><div class="v" style="font-size:26pt;color:var(--gold)">R$ 17.750,00</div></div>
+        <div style="margin-top:3mm;padding:3mm 4mm;border-radius:3mm;background:rgba(61,255,143,.1);border:1px solid rgba(61,255,143,.4)"><span style="font-size:7pt;letter-spacing:.16em;color:var(--neon)">OU FINANCIADO EM ATÉ 120X</span><div style="font-family:'Inter Display';font-size:16pt;font-weight:700;color:#fff">a partir de R$ 326,72</div></div>
+      </div><div class="vidro canto" style="padding:5mm 6mm;border-color:rgba(249,185,30,.5)">
+        <span class="eti">Opção 2 · 10 kWh</span>
+        <div style="font-size:9pt;color:#C9D5EC;margin-top:1mm">2 baterias · cerca de 24 horas do essencial</div>
+        <div class="kpi" style="padding:0;margin-top:3mm"><div class="r">À vista</div><div class="v" style="font-size:26pt;color:var(--gold)">R$ 22.810,00</div></div>
+        <div style="margin-top:3mm;padding:3mm 4mm;border-radius:3mm;background:rgba(61,255,143,.1);border:1px solid rgba(61,255,143,.4)"><span style="font-size:7pt;letter-spacing:.16em;color:var(--neon)">OU FINANCIADO EM ATÉ 120X</span><div style="font-family:'Inter Display';font-size:16pt;font-weight:700;color:#fff">a partir de R$ 419,85</div></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:5mm;margin-top:5mm">
+      <div class="vidro" style="flex:1.25;padding:3mm 2mm">
+        <div style="padding:0 3mm 1mm" class="eti">Financiamento</div>
+        <table>
+          <tr><th>Prazo</th><th style="text-align:right">Opção 1</th><th style="text-align:right">Opção 2</th></tr>
+          <tr><td>24 meses</td><td class="n"><b style="color:#fff">R$ 874,87</b></td><td class="n"><b style="color:#fff">R$ 1.124,27</b></td></tr><tr><td>36 meses</td><td class="n"><b style="color:#fff">R$ 630,01</b></td><td class="n"><b style="color:#fff">R$ 809,61</b></td></tr><tr><td>48 meses</td><td class="n"><b style="color:#fff">R$ 509,24</b></td><td class="n"><b style="color:#fff">R$ 654,41</b></td></tr><tr><td>60 meses</td><td class="n"><b style="color:#fff">R$ 438,08</b></td><td class="n"><b style="color:#fff">R$ 562,97</b></td></tr><tr><td>72 meses</td><td class="n"><b style="color:#fff">R$ 391,71</b></td><td class="n"><b style="color:#fff">R$ 503,37</b></td></tr><tr><td>84 meses</td><td class="n"><b style="color:#fff">R$ 359,46</b></td><td class="n"><b style="color:#fff">R$ 461,93</b></td></tr><tr><td>120 meses</td><td class="n"><b style="color:#fff">R$ 326,72</b></td><td class="n"><b style="color:#fff">R$ 419,85</b></td></tr>
+        </table>
+        <div class="miuda" style="padding:2mm 3mm 0">Taxas de referência (1,39% a.m.; 120x a 1,55% a.m.). A taxa final é a do banco no dia.</div>
+      </div>
+      <div style="flex:1;display:grid;gap:3mm;align-content:start">
+        <div class="vidro" style="padding:3.5mm 4mm"><b style="font-size:9.5pt">O que está incluído</b>
+          <div class="miuda" style="font-size:8pt;color:#B7C6E2;line-height:1.7;margin-top:1mm">✓ Inversor híbrido e bateria(s)<br>✓ Quadro dos circuitos essenciais<br>✓ Cabos, disjuntores e proteções<br>✓ Atualização do projeto na Coelba<br>✓ Instalação e configuração<br>✓ Frete e deslocamento</div></div>
+        <div class="vidro" style="padding:3.5mm 4mm"><b style="font-size:9.5pt">Cartão de crédito</b><div class="miuda" style="font-size:8pt;color:#B7C6E2;margin-top:1mm">Em até 12x ou 24x, com os juros da administradora do cartão. Consulte.</div></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:5mm">
+      
+      <div class="vidro" style="padding:3.5mm;text-align:center"><b style="font-size:10pt;color:var(--gold)">À vista</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Pix ou transferência</div></div>
+      <div class="vidro" style="padding:3.5mm;text-align:center"><b style="font-size:10pt;color:var(--gold)">Cartão</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">até 24x com juros</div></div>
+      <div class="vidro" style="padding:3.5mm;text-align:center"><b style="font-size:10pt;color:var(--gold)">Financiamento</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">até 120x</div></div>
+      <div class="vidro" style="padding:3.5mm;text-align:center"><b style="font-size:10pt;color:var(--gold)">Cartão BNDES</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">aceito</div></div>
+    </div>
+    <div style="margin-top:4mm;background:#fff;border-radius:3mm;padding:3mm 5mm;display:flex;align-items:center;gap:5mm"><span style="font-size:7pt;letter-spacing:.14em;color:#0E2A5E;font-weight:700;width:30mm;line-height:1.3">FINANCIAMENTO COM BANCOS PARCEIROS</span><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/bancos.png" style="height:15mm;flex:1;object-fit:contain"></div>
+    <div class="miuda" style="position:absolute;bottom:0;left:0;right:0">*Parcelas sujeitas à aprovação de crédito, aos critérios de cada banco, ao score e à capacidade de pagamento de cada CPF/CNPJ. Cartão em até 24x com juros da administradora; aceitamos Cartão BNDES. Valores de referência, sujeitos a análise técnica e à confirmação do preço dos equipamentos. Preço dos equipamentos consultado em 07/11/2026; proposta válida até 09/11/2026.</div>
+  </div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>6/10</span></div>
+</section>
+
+<!-- 6 GARANTIAS E JORNADA -->
+
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>06 · Para a senhora</span></div>
+  <div class="cont">
+    <span class="eti">Cliente Insolar há mais de 4 anos</span>
+    <h2>DONA AURISTELA, MUITO OBRIGADO<br><b>POR CONTINUAR CONFIANDO NA INSOLAR!</b></h2>
+    <div style="font-size:9.5pt;color:#C9D5EC;line-height:1.45">É uma alegria receber o seu contato de novo e preparar mais esta proposta para a senhora. Há mais de 4 anos o seu sistema gera energia limpa todos os dias, e agora ele entra numa nova fase: com a bateria, a sua casa fica INDEPENDENTE DA CONCESSIONÁRIA NOS DIAS DE FALTA DE ENERGIA. Estamos à disposição para atendê-la a qualquer momento, sempre que a senhora precisar.</div>
+    <div class="vidro canto" style="margin-top:5mm;padding:3mm 2mm">
+      <table>
+        <tr><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)"></th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--neon)">OPÇÃO 1</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">OPÇÃO 2</th></tr>
+        <tr><td>Baterias</td><td><b style="color:#fff">1 × 5 kWh</b></td><td style="color:#AFC0DE">2 × 5 kWh (10 kWh)</td></tr><tr><td>Tempo com energia (essencial)</td><td><b style="color:#fff">cerca de 12 horas</b></td><td style="color:#AFC0DE">cerca de 24 horas</td></tr><tr><td>Aparelhos ao mesmo tempo</td><td><b style="color:#fff">até 2.500 W</b></td><td style="color:#AFC0DE">até 5.000 W</td></tr><tr><td>Inversor híbrido</td><td><b style="color:#fff">Deye 5 kW</b></td><td style="color:#AFC0DE">Deye 5 kW</td></tr><tr><td>Valor à vista</td><td><b style="color:#fff">R$ 17.750,00</b></td><td style="color:#AFC0DE">R$ 22.810,00</td></tr>
+      </table>
+    </div>
+    
+    <div style="margin-top:4mm;padding:4mm 5mm;border-radius:3mm;background:rgba(255,255,255,.96);color:#0E2A5E">
+      <b style="font-size:7.5pt;letter-spacing:.14em;color:#c0392b">O QUE A SENHORA PRECISA SABER</b>
+      <div style="font-size:8.8pt;line-height:1.45;margin-top:1.5mm">O seu sistema atual (8 placas de 550 W e o inversor Deye 4 kW) continua funcionando normalmente. O novo inversor híbrido trabalha junto com ele.</div><div style="font-size:8.8pt;line-height:1.45;margin-top:1.5mm">Quando a energia da rua cair, os circuitos essenciais da casa continuam ligados pela bateria. De dia, as placas seguem recarregando a bateria.</div><div style="font-size:8.8pt;line-height:1.45;margin-top:1.5mm">Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria, porque gastariam a carga muito rápido.</div><div style="font-size:8.8pt;line-height:1.45;margin-top:1.5mm">Incluímos a atualização do projeto na Coelba, para o seu sistema continuar regularizado.</div>
+    </div>
+    <div class="miuda" style="margin-top:3mm">Autonomia estimada considerando os aparelhos essenciais gastando juntos, em média, cerca de 350 W (geladeira, lâmpadas, TV, internet e ventiladores): cerca de 13 horas com 1 bateria e cerca de 27 horas com 2 baterias. Com 1 bateria, o ideal é usar até 2.500 W ao mesmo tempo; com 2 baterias, até 5.000 W. Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria. *Garantia da bateria conforme o fabricante.</div>
+    
+  </div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>7/10</span></div>
+</section>
+
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>07 · Garantias e jornada</span></div>
+  <div class="cont">
+    <span class="eti">Segurança do começo ao fim</span>
+    <h2>Nós cuidamos de <b>tudo</b><br>para você.</h2>
+    <div style="display:flex;gap:5mm">
+      <div style="flex:1;display:grid;gap:2.6mm">
+        
+        <div class="vidro" style="display:flex;gap:3.5mm;padding:3mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><div><span style="font-size:7pt;color:var(--neon);letter-spacing:.14em">ETAPA 1</span><b style="display:block;font-size:10pt">Projeto</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Dimensionamento feito pela nossa equipe técnica, seguindo as normas.</div></div></div>
+        
+        <div class="vidro" style="display:flex;gap:3.5mm;padding:3mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7zM5 19a2 2 0 1 0 0-.01M17 19a2 2 0 1 0 0-.01"/></svg></div><div><span style="font-size:7pt;color:var(--neon);letter-spacing:.14em">ETAPA 2</span><b style="display:block;font-size:10pt">Logística</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Equipamentos entregues com segurança no local da instalação.</div></div></div>
+        
+        <div class="vidro" style="display:flex;gap:3.5mm;padding:3mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><div><span style="font-size:7pt;color:var(--neon);letter-spacing:.14em">ETAPA 3</span><b style="display:block;font-size:10pt">Instalação</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Agendada no melhor momento para a sua rotina.</div></div></div>
+        
+        <div class="vidro" style="display:flex;gap:3.5mm;padding:3mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM9 15l2 2 4-4"/></svg></div><div><span style="font-size:7pt;color:var(--neon);letter-spacing:.14em">ETAPA 4</span><b style="display:block;font-size:10pt">Homologação</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Toda a papelada junto à Coelba/Neoenergia por nossa conta.</div></div></div>
+        
+        <div class="vidro" style="display:flex;gap:3.5mm;padding:3mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></div><div><span style="font-size:7pt;color:var(--neon);letter-spacing:.14em">ETAPA 5</span><b style="display:block;font-size:10pt">Monitoramento</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Acompanhe a geração pelo aplicativo do inversor.</div></div></div>
+        
+        <div class="vidro" style="display:flex;gap:3.5mm;padding:3mm 4mm;align-items:center"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 22v-4M4.9 4.9l4.2 4.2M14.8 14.8l4.3 4.3M2 12h6M16 12h6"/></svg></div><div><span style="font-size:7pt;color:var(--neon);letter-spacing:.14em">ETAPA 6</span><b style="display:block;font-size:10pt">Manutenção</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Planos de limpeza e inspeção para manter a geração em alta.</div></div></div>
+        
+      </div>
+      <div style="width:72mm;flex:none;display:grid;gap:4mm;align-content:start">
+        <div class="vidro" style="height:92mm;overflow:hidden"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/jornada.jpg" style="width:100%;height:100%;object-fit:cover;object-position:55% 40%"></div>
+        <div class="vidro canto" style="padding:3mm 2mm">
+          <div class="eti" style="padding:0 3mm">Garantias</div>
+          <table>
+            <tr><td>Bateria</td><td class="n"><b>5 anos*</b></td></tr><tr><td>Inversor híbrido</td><td class="n"><b>Conforme o fabricante</b></td></tr>
+            <tr><td>Instalação</td><td class="n"><b>1 ano</b></td></tr>
+          </table>
+          <div class="miuda" style="padding:2mm 3mm 0">*Garantia de desempenho dos fabricantes. Garantias de equipamentos conforme cada fabricante.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>8/10</span></div>
+</section>
+
+<!-- 7 SERVIÇOS -->
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>08 · Mais soluções Insolar</span></div>
+  <div class="cont">
+    <span class="eti">Um ecossistema completo de energia</span>
+    <h2>Muito além das<br><b>placas solares.</b></h2>
+    <div class="vidro" style="height:74mm;overflow:hidden;margin-bottom:5mm;position:relative"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/servicos.jpg" style="width:100%;height:100%;object-fit:cover;object-position:50% 22%"><div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,18,43,.85),rgba(6,18,43,0) 60%)"></div><div style="position:absolute;left:6mm;top:50%;transform:translateY(-50%);width:70mm"><span class="chip">Novidade</span><div style="font-family:'Inter Display';font-size:17pt;font-weight:700;margin-top:2mm">Energia do sol de dia.<br><span style="color:var(--gold)">Energia guardada à noite.</span></div><div style="font-size:8.5pt;color:#C9D5EC;margin-top:2mm">Baterias, sistemas híbridos e carregador para o seu carro elétrico.</div></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm">
+      
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:flex-start"><div class="ico ouro"><svg viewBox="0 0 24 24"><path d="M12 2s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></div><div><b style="font-size:9.8pt">Lavagem de placas</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2;margin-top:.5mm">Placa limpa gera mais. Limpeza técnica com cuidado e segurança.</div></div></div>
+      
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:flex-start"><div class="ico "><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><div><b style="font-size:9.8pt">Manutenção e inspeção técnica</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2;margin-top:.5mm">Revisão completa do sistema para manter a geração em alta.</div></div></div>
+      
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:flex-start"><div class="ico "><svg viewBox="0 0 24 24"><path d="M7 4h10v18H7zM10 2h4M12 9l-2 4h4l-2 4"/></svg></div><div><b style="font-size:9.8pt">Baterias e sistemas híbridos</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2;margin-top:.5mm">Guarde energia e transforme o seu sistema atual em híbrido.</div></div></div>
+      
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:flex-start"><div class="ico ouro"><svg viewBox="0 0 24 24"><path d="M5 17h14l-1.5-6h-11zM7 17v3M17 17v3M8 11l1.5-4h5L16 11M12 2v3"/></svg></div><div><b style="font-size:9.8pt">Carregador de carro elétrico</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2;margin-top:.5mm">Instalação de carregador para carregar o seu carro em casa.</div></div></div>
+      
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:flex-start"><div class="ico "><svg viewBox="0 0 24 24"><path d="M5 18a3 3 0 1 0 0-.01M19 18a3 3 0 1 0 0-.01M5 18l4-8h6l4 8M9 10l-1-3H6M15 10l2-3"/></svg></div><div><b style="font-size:9.8pt">Mobilidade elétrica</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2;margin-top:.5mm">Bicicletas, motos, triciclos e patinetes elétricos.</div></div></div>
+      
+      <div class="vidro" style="display:flex;gap:3.5mm;padding:3.5mm 4mm;align-items:flex-start"><div class="ico "><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l5 3V10l5 3V6h4v15"/></svg></div><div><b style="font-size:9.8pt">Empresas, agro e indústria</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2;margin-top:.5mm">Sistemas grandes, armazenamento para empresas e rateio de créditos.</div></div></div>
+      
+    </div>
+    <div class="miuda" style="margin-top:4mm;font-size:7.6pt">Também fazemos: diagnóstico de contas de luz, troca de titularidade e homologação na Coelba/Neoenergia, sistemas isolados e grid zero, e aquecimento com boiler. Peça o orçamento de qualquer serviço pelo (73) 3223-5102.</div>
+  </div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>9/10</span></div>
+</section>
+
+<!-- 8 PRÓXIMOS PASSOS -->
+<section class="pg"><div class="grade" style="background-image:url(file:///home/claude/insolar-midias/orcamento-modelo/img/grade.png)"></div>
+  <div class="topo"><div class="marca"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png"><div>Insolar Brasil<small>Energia solar inteligente</small></div></div><span>09 · Próximos passos</span></div>
+  <div class="robo" style="right:0;bottom:0;width:86mm;height:170mm"><img src="file:///home/claude/insolar-midias/orcamento-modelo/img/contato.jpg" style="object-position:30% 40%"><div style="position:absolute;inset:0;background:linear-gradient(90deg,#06122B 0%,rgba(6,18,43,0) 35%),linear-gradient(180deg,#06122B 0%,rgba(6,18,43,0) 15%)"></div></div>
+  <div class="fala" style="right:14mm;top:96mm;width:54mm">Gostou? É só falar com a gente que eu cuido do resto!</div>
+  <div class="cont" style="right:88mm">
+    <span class="eti">Vamos começar?</span>
+    <h2>Seu sistema solar<br>a <b>3 passos</b> de você.</h2>
+    <div style="display:grid;gap:3mm;margin-top:3mm">
+      
+      <div class="vidro" style="display:flex;gap:4mm;padding:3.5mm 4mm;align-items:center"><div style="font-family:'Inter Display';font-size:20pt;font-weight:800;color:var(--gold);width:8mm">1</div><div><b style="font-size:10pt">Aprovação da proposta</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Confirme pelo WhatsApp ou assine abaixo.</div></div></div>
+      
+      <div class="vidro" style="display:flex;gap:4mm;padding:3.5mm 4mm;align-items:center"><div style="font-family:'Inter Display';font-size:20pt;font-weight:800;color:var(--gold);width:8mm">2</div><div><b style="font-size:10pt">Visita técnica</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">Confirmamos telhado, direção, sombra e parte elétrica.</div></div></div>
+      
+      <div class="vidro" style="display:flex;gap:4mm;padding:3.5mm 4mm;align-items:center"><div style="font-family:'Inter Display';font-size:20pt;font-weight:800;color:var(--gold);width:8mm">3</div><div><b style="font-size:10pt">Projeto, instalação e homologação</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">A gente cuida de tudo até o sistema estar liberado.</div></div></div>
+      
+    </div>
+    <div class="vidro canto" style="margin-top:6mm;padding:5mm;border-color:rgba(249,185,30,.5)">
+      <img class="sglow" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_grande.png" style="position:absolute;right:5mm;top:4mm;height:22mm"><div class="eti" style="color:var(--gold)">Fale com o comercial</div>
+      <div style="font-family:'Inter Display';font-size:24pt;font-weight:800;color:#fff;margin-top:1.5mm">(73) 3223-5102</div>
+      <div style="font-size:8.6pt;color:#C9D5EC;margin-top:1mm;line-height:1.5">insolarbrasil.com.br · @insolarbrasil<br>comercial@insolarbrasil.com.br</div>
+    </div>
+    <div style="display:flex;gap:6mm;margin-top:12mm;font-size:7.5pt;color:var(--mut)">
+      <div style="flex:1;border-top:1px solid #8FA3C7;padding-top:1.5mm">Assinatura do cliente<br>Data: ____/____/______</div>
+      <div style="flex:1;border-top:1px solid #8FA3C7;padding-top:1.5mm">Insolar Brasil Instalação de Painéis Fotovoltaicos Ltda.<br>CNPJ 07.517.452/0001-94</div>
+    </div>
+    <div class="miuda" style="margin-top:6mm">Autonomia estimada considerando os aparelhos essenciais gastando juntos, em média, cerca de 350 W (geladeira, lâmpadas, TV, internet e ventiladores): cerca de 13 horas com 1 bateria e cerca de 27 horas com 2 baterias. Com 1 bateria, o ideal é usar até 2.500 W ao mesmo tempo; com 2 baterias, até 5.000 W. Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria. Para o projeto final é indispensável a visita técnica, que avalia o local das baterias e a parte elétrica. Valores de referência, sujeitos a análise técnica. Proposta válida até 09/11/2026.</div>
+  </div>
+  <img class="sfundo" src="file:///home/claude/insolar-midias/orcamento-modelo/img/S_fundo.png"><div class="rod"><span>Proposta nº 2026-003 · Dona Auristela · 07/11/2026</span><span>(73) 3223-5102 · insolarbrasil.com.br · @insolarbrasil</span><span>10/10</span></div>
+</section>
+</body></html>

@@ -76,8 +76,10 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     <h1 style="font-size:40pt;line-height:1;font-weight:800;margin:3mm 0 4mm;color:#fff">Sua energia solar,<br><span style="color:var(--gold)">projetada com inteligência.</span></h1>
     <div style="display:flex;gap:4mm;margin-top:6mm">
       <div class="vidro canto kpi" style="flex:1.2"><div class="r">Preparada para</div><div class="v" style="font-size:16pt">{{ d.cliente }}</div><div class="s">{{ d.cidade }}</div></div>
-      <div class="vidro canto kpi" style="flex:1"><div class="r">Potência do sistema</div><div class="v">{{ num(c.kwp,2) }}<small>kWp</small></div><div class="s">{{ d.placas_qtd }} placas de {{ d.placa_w }} W</div></div>
-      <div class="vidro canto kpi" style="flex:1"><div class="r">Geração estimada</div><div class="v">{{ num(c.geracao_mes) }}<small>kWh/mês</small></div><div class="s">média ao longo do ano</div></div>
+{% if d.bateria %}      <div class="vidro canto kpi" style="flex:1"><div class="r">Seu sistema atual</div><div class="v">{{ num(c.kwp,2) }}<small>kWp</small></div><div class="s">{{ d.placas_qtd }} placas de {{ d.placa_w }} W já instaladas</div></div>
+      <div class="vidro canto kpi" style="flex:1"><div class="r">Energia guardada</div><div class="v">{{ d.bateria.faixa_kwh }}<small>kWh</small></div><div class="s">{{ d.bateria.opcoes|length }} opções de bateria</div></div>
+{% else %}      <div class="vidro canto kpi" style="flex:1"><div class="r">Potência do sistema</div><div class="v">{{ num(c.kwp,2) }}<small>kWp</small></div><div class="s">{{ d.placas_qtd }} placas de {{ d.placa_w }} W</div></div>
+      <div class="vidro canto kpi" style="flex:1"><div class="r">Geração estimada</div><div class="v">{{ num(c.geracao_mes) }}<small>kWh/mês</small></div><div class="s">média ao longo do ano</div></div>{% endif %}
     </div>
     <div style="display:flex;justify-content:space-between;margin-top:5mm;font-size:8pt;color:var(--mut)"><span>Emitida em {{ data_br }} · válida até {{ validade_br }}</span><span>Mais de 7 anos de experiência · Centenas de instalações homologadas na Bahia</span></div>
   </div>
@@ -124,7 +126,45 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
 </section>
 
 <!-- 3 SEU SISTEMA -->
-<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
+{% if d.bateria %}<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
+  <div class="topo">{{ marca }}<span>03 · Seu sistema com bateria</span></div>
+  <div class="cont">
+    <span class="eti">Nova fase da sua energia solar</span>
+    <h2>Sua energia guardada<br>para quando <b>faltar luz.</b></h2>
+    <div style="display:flex;gap:5mm">
+      <div style="flex:1">
+        <div class="kpis">
+          <div class="vidro canto kpi"><div class="r">Seu sistema atual</div><div class="v">{{ num(c.kwp,2) }}<small>kWp</small></div><div class="s">{{ d.placas_qtd }} × {{ d.placa_w }} W · continua igual</div></div>
+          <div class="vidro canto kpi"><div class="r">Novo inversor híbrido</div><div class="v">{{ d.bateria.hibrido_kw }}<small>kW</small></div><div class="s">trabalha junto com o seu inversor atual</div></div>
+          {% for o in d.bateria.opcoes %}<div class="vidro canto kpi"><div class="r">{{ o.nome }}</div><div class="v">{{ o.kwh }}<small>kWh</small></div><div class="s">{{ o.baterias }} bateria{{ 's' if o.baterias > 1 else '' }} · {{ o.autonomia }}</div></div>{% endfor %}
+        </div>
+        <div class="vidro" style="margin-top:4mm;padding:2mm 1mm">
+          <table>
+            <tr><th>Equipamento</th><th>Descrição</th><th style="text-align:right">Qtd</th></tr>
+            <tr><td>Inversor híbrido</td><td>{{ d.bateria.hibrido_modelo }}</td><td class="n">1</td></tr>
+            <tr><td>Bateria</td><td>{{ d.bateria.bateria_modelo }}</td><td class="n">1 ou 2</td></tr>
+            <tr><td>Quadro essencial</td><td>Quadro separado para os circuitos essenciais, cabos, disjuntores e proteções da bateria</td><td class="n">1</td></tr>
+            <tr><td>Já instalado</td><td>{{ d.inversor_modelo }} + {{ d.placas_qtd }} placas de {{ d.placa_w }} W</td><td class="n">—</td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="width:56mm;height:118mm;position:relative;flex:none">
+        <div class="vidro" style="position:absolute;inset:0;overflow:hidden"><img src="{{ img }}/servicos.jpg" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%"></div>
+      </div>
+    </div>
+    <div class="vidro canto" style="margin-top:5mm;padding:4mm 5mm">
+      <span class="eti">Como funciona quando a luz da rua cai</span>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-top:3mm;font-size:8.8pt;line-height:1.45;color:#C9D5EC">
+        <div><b style="color:#fff;font-size:10pt">1. Falta energia</b><br>Em poucos instantes o sistema passa a usar a bateria, sem a senhora precisar fazer nada.</div>
+        <div><b style="color:#fff;font-size:10pt">2. A casa segue ligada</b><br>Geladeira, lâmpadas, TV, internet e ventiladores continuam funcionando normalmente.</div>
+        <div><b style="color:#fff;font-size:10pt">3. O sol recarrega</b><br>De dia, as suas placas continuam gerando e recarregam a bateria, mesmo sem a rede.</div>
+      </div>
+      <div class="miuda" style="margin-top:3mm">{{ d.bateria.nota_autonomia }}</div>
+    </div>
+  </div>
+  <div class="fala esq" style="left:138mm;top:150mm;width:52mm">Seu sistema continua o mesmo. Agora ele ganha uma reserva de energia para os dias de falta de luz.</div>
+  {{ rodape(4) }}{{ exemplo }}
+</section>{% else %}<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>03 · Seu sistema</span></div>
   <div class="cont">
     <span class="eti">Painel do seu projeto</span>
@@ -158,7 +198,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
   </div>
   <div class="fala esq" style="left:138mm;top:150mm;width:52mm">Este é o coração do seu sistema: placas, inversor e a energia que ele vai gerar.</div>
   {{ rodape(4) }}{{ exemplo }}
-</section>
+</section>{% endif %}
 
 <!-- 4 COMO FUNCIONA -->
 <section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
@@ -192,12 +232,48 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       {% endfor %}
     </div>
   </div>
-  <div class="fala" style="left:14mm;top:140mm;width:44mm">Sem bateria, o sistema funciona ligado à rede. Quer guardar energia? Veja a página {{ 9 if d.especial else 8 }}.</div>
+  <div class="fala" style="left:14mm;top:140mm;width:44mm">{% if d.bateria %}Com a bateria, quando a rede cai, a sua casa continua com energia.{% else %}Sem bateria, o sistema funciona ligado à rede. Quer guardar energia? Veja a página {{ 9 if d.especial else 8 }}.{% endif %}</div>
   {{ rodape(5) }}{{ exemplo }}
 </section>
 
 <!-- 5 INVESTIMENTO -->
-<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
+{% if d.bateria %}<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
+  <div class="topo">{{ marca }}<span>05 · Seu investimento</span></div>
+  <div class="cont">
+    <span class="eti">Investimento completo</span>
+    <h2>Duas opções,<br>do projeto à <b>instalação.</b></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:4mm">
+      {% for o in c.opcoes %}<div class="vidro canto" style="padding:5mm 6mm;border-color:rgba(249,185,30,.5)">
+        <span class="eti">{{ o.nome }} · {{ o.kwh }} kWh</span>
+        <div style="font-size:9pt;color:#C9D5EC;margin-top:1mm">{{ o.baterias }} bateria{{ 's' if o.baterias > 1 else '' }} · {{ o.autonomia }}</div>
+        <div class="kpi" style="padding:0;margin-top:3mm"><div class="r">À vista</div><div class="v" style="font-size:26pt;color:var(--gold)">{{ brl(o.preco) }}</div></div>
+        <div style="margin-top:3mm;padding:3mm 4mm;border-radius:3mm;background:rgba(61,255,143,.1);border:1px solid rgba(61,255,143,.4)"><span style="font-size:7pt;letter-spacing:.16em;color:var(--neon)">OU FINANCIADO EM ATÉ 120X</span><div style="font-family:'Inter Display';font-size:16pt;font-weight:700;color:#fff">a partir de {{ brl(o.fin[-1][2]) }}</div></div>
+      </div>{% endfor %}
+    </div>
+    <div style="display:flex;gap:5mm;margin-top:5mm">
+      <div class="vidro" style="flex:1.25;padding:3mm 2mm">
+        <div style="padding:0 3mm 1mm" class="eti">Financiamento</div>
+        <table>
+          <tr><th>Prazo</th>{% for o in c.opcoes %}<th style="text-align:right">{{ o.nome }}</th>{% endfor %}</tr>
+          {% for i in range(c.opcoes[0].fin|length) %}<tr><td>{{ c.opcoes[0].fin[i][0] }} meses</td>{% for o in c.opcoes %}<td class="n"><b style="color:#fff">{{ brl(o.fin[i][2]) }}</b></td>{% endfor %}</tr>{% endfor %}
+        </table>
+        <div class="miuda" style="padding:2mm 3mm 0">Taxas de referência ({{ num(c.opcoes[0].fin[0][1]*100,2) }}% a.m.; 120x a {{ num(c.opcoes[0].fin[-1][1]*100,2) }}% a.m.). A taxa final é a do banco no dia.</div>
+      </div>
+      <div style="flex:1;display:grid;gap:3mm;align-content:start">
+        <div class="vidro" style="padding:3.5mm 4mm"><b style="font-size:9.5pt">O que está incluído</b>
+          <div class="miuda" style="font-size:8pt;color:#B7C6E2;line-height:1.7;margin-top:1mm">✓ Inversor híbrido e bateria(s)<br>✓ Quadro dos circuitos essenciais<br>✓ Cabos, disjuntores e proteções<br>✓ Atualização do projeto na Coelba<br>✓ Instalação e configuração<br>✓ Frete e deslocamento</div></div>
+        <div class="vidro" style="padding:3.5mm 4mm"><b style="font-size:9.5pt">Cartão de crédito</b><div class="miuda" style="font-size:8pt;color:#B7C6E2;margin-top:1mm">Em até 12x ou 24x, com os juros da administradora do cartão. Consulte.</div></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:5mm">
+      {% for t,s in [("À vista","Pix ou transferência"),("Cartão","até 24x com juros"),("Financiamento","até 120x"),("Cartão BNDES","aceito")] %}
+      <div class="vidro" style="padding:3.5mm;text-align:center"><b style="font-size:10pt;color:var(--gold)">{{ t }}</b><div class="miuda" style="font-size:7.8pt;color:#B7C6E2">{{ s }}</div></div>{% endfor %}
+    </div>
+    <div style="margin-top:4mm;background:#fff;border-radius:3mm;padding:3mm 5mm;display:flex;align-items:center;gap:5mm"><span style="font-size:7pt;letter-spacing:.14em;color:#0E2A5E;font-weight:700;width:30mm;line-height:1.3">FINANCIAMENTO COM BANCOS PARCEIROS</span><img src="{{ img }}/bancos.png" style="height:15mm;flex:1;object-fit:contain"></div>
+    <div class="miuda" style="position:absolute;bottom:0;left:0;right:0">*Parcelas sujeitas à aprovação de crédito, aos critérios de cada banco, ao score e à capacidade de pagamento de cada CPF/CNPJ. Cartão em até 24x com juros da administradora; aceitamos Cartão BNDES. Valores de referência, sujeitos a análise técnica e à confirmação do preço dos equipamentos. Preço dos equipamentos consultado em {{ d.data_preco_distribuidor }}; proposta válida até {{ validade_br }}.</div>
+  </div>
+  {{ rodape(6) }}{{ exemplo }}
+</section>{% else %}<section class="pg"><div class="grade" style="background-image:url({{ img }}/grade.png)"></div>
   <div class="topo">{{ marca }}<span>05 · Seu investimento</span></div>
   <div class="robo" style="right:0;top:0;width:78mm;height:150mm"><img src="{{ img }}/preco.jpg" style="object-position:55% 30%"><div style="position:absolute;inset:0;background:linear-gradient(90deg,#0b2550 0%,rgba(11,37,80,0) 35%),linear-gradient(0deg,#0a1f45 0%,rgba(10,31,69,0) 20%)"></div></div>
   <div class="cont">
@@ -236,7 +312,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     <div class="miuda" style="position:absolute;bottom:0;left:0;right:0">*Parcelas sujeitas à aprovação de crédito, aos critérios de cada banco, ao score e à capacidade de pagamento de cada CPF/CNPJ. Cartão em até 24x com juros da administradora; aceitamos Cartão BNDES. Valores de referência, sujeitos a análise técnica. Adequações exigidas pela concessionária (padrão de entrada, caixa de medição, estudo de rede) e troca de titularidade não estão incluídas e são orçadas à parte. Preço dos equipamentos consultado em {{ d.data_preco_distribuidor }}; proposta válida até {{ validade_br }}.</div>
   </div>
   {{ rodape(6) }}{{ exemplo }}
-</section>
+</section>{% endif %}
 
 <!-- 6 GARANTIAS E JORNADA -->
 {% if d.especial %}{% set e = d.especial %}
@@ -284,8 +360,8 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
         <div class="vidro canto" style="padding:3mm 2mm">
           <div class="eti" style="padding:0 3mm">Garantias</div>
           <table>
-            <tr><td>Placas solares</td><td class="n"><b>25 anos*</b></td></tr>
-            <tr><td>Inversor</td><td class="n"><b>{{ d.garantia_inversor }}</b></td></tr>
+            {% if d.bateria %}<tr><td>Bateria</td><td class="n"><b>{{ d.bateria.garantia_bateria }}</b></td></tr><tr><td>Inversor híbrido</td><td class="n"><b>{{ d.bateria.garantia_hibrido }}</b></td></tr>{% else %}<tr><td>Placas solares</td><td class="n"><b>25 anos*</b></td></tr>
+            <tr><td>Inversor</td><td class="n"><b>{{ d.garantia_inversor }}</b></td></tr>{% endif %}
             <tr><td>Instalação</td><td class="n"><b>1 ano</b></td></tr>
           </table>
           <div class="miuda" style="padding:2mm 3mm 0">*Garantia de desempenho dos fabricantes. Garantias de equipamentos conforme cada fabricante.</div>
@@ -335,7 +411,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       <div style="flex:1;border-top:1px solid #8FA3C7;padding-top:1.5mm">Assinatura do cliente<br>Data: ____/____/______</div>
       <div style="flex:1;border-top:1px solid #8FA3C7;padding-top:1.5mm">Insolar Brasil Instalação de Painéis Fotovoltaicos Ltda.<br>CNPJ 07.517.452/0001-94</div>
     </div>
-    <div class="miuda" style="margin-top:6mm">Geração estimada de cerca de {{ num(c.geracao_mes) }} kWh por mês para este sistema de {{ num(c.kwp,2) }} kWp (conta: cada 1 kWp instalado gera em média 117 kWh por mês em Ilhéus e região, então {{ num(c.kwp,2) }} × 117 = {{ num(c.geracao_mes) }} kWh); a geração real depende de sombra, inclinação, direção do telhado e clima. Para o dimensionamento final é indispensável a visita técnica, que avalia a estrutura e a parte elétrica; podem ser necessárias adequações para a segurança e a homologação junto à concessionária. Valores de referência, sujeitos a análise técnica. Proposta válida até {{ validade_br }}.</div>
+    {% if d.bateria %}<div class="miuda" style="margin-top:6mm">{{ d.bateria.nota_autonomia }} Para o projeto final é indispensável a visita técnica, que avalia o local das baterias e a parte elétrica. Valores de referência, sujeitos a análise técnica. Proposta válida até {{ validade_br }}.</div>{% else %}<div class="miuda" style="margin-top:6mm">Geração estimada de cerca de {{ num(c.geracao_mes) }} kWh por mês para este sistema de {{ num(c.kwp,2) }} kWp (conta: cada 1 kWp instalado gera em média 117 kWh por mês em Ilhéus e região, então {{ num(c.kwp,2) }} × 117 = {{ num(c.geracao_mes) }} kWh); a geração real depende de sombra, inclinação, direção do telhado e clima. Para o dimensionamento final é indispensável a visita técnica, que avalia a estrutura e a parte elétrica; podem ser necessárias adequações para a segurança e a homologação junto à concessionária. Valores de referência, sujeitos a análise técnica. Proposta válida até {{ validade_br }}.</div>{% endif %}
   </div>
   {{ rodape(9 + (1 if d.especial else 0)) }}{{ exemplo }}
 </section>

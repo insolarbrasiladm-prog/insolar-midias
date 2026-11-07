@@ -41,6 +41,12 @@ def calcular(d):
         for n, taxa in d["financiamento"]:
             fin.append((n, taxa, parcela(p, taxa, n)))
     c["fin"] = fin
+    if d.get("bateria"):
+        c["opcoes"] = []
+        for o in d["bateria"]["opcoes"]:
+            o2 = dict(o)
+            o2["fin"] = [(n, taxa, parcela(o["preco"], taxa, n)) for n, taxa in d["financiamento"]]
+            c["opcoes"].append(o2)
     return c
 
 def grafico_svg(acum):

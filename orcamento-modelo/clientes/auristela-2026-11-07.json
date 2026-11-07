@@ -1,0 +1,132 @@
+{
+ "numero": "2026-003",
+ "data": "2026-11-07",
+ "validade_dias": 2,
+ "cliente": "Dona Auristela",
+ "cidade": "Ilhéus - BA",
+ "tipo_ligacao": "Monofásica 220 V",
+ "telhado": "já instalado",
+ "consumo_medio": null,
+ "placas_qtd": 8,
+ "placa_w": 550,
+ "placa_modelo": "Placas de 550 W (já instaladas)",
+ "inversor_qtd": 1,
+ "inversor_kw": 4,
+ "inversor_modelo": "Inversor Deye 4 kW monofásico 220 V (já instalado)",
+ "estrutura": "já instalada",
+ "garantia_inversor": "Conforme o fabricante",
+ "preco": 17750.0,
+ "desconto_pix": 0.0,
+ "cartao_sem_juros": false,
+ "financiamento": [
+  [
+   24,
+   0.0139
+  ],
+  [
+   36,
+   0.0139
+  ],
+  [
+   48,
+   0.0139
+  ],
+  [
+   60,
+   0.0139
+  ],
+  [
+   72,
+   0.0139
+  ],
+  [
+   84,
+   0.0139
+  ],
+  [
+   120,
+   0.0155
+  ]
+ ],
+ "data_preco_distribuidor": "07/11/2026",
+ "marcas": [
+  "Growatt",
+  "Deye",
+  "GoodWe",
+  "SMA",
+  "FoxESS",
+  "SAJ"
+ ],
+ "bateria": {
+  "faixa_kwh": "5 a 10",
+  "hibrido_kw": 5,
+  "hibrido_modelo": "Deye SUN-5K-SG06LP1 híbrido 5 kW monofásico 220 V, com acoplamento ao seu inversor atual",
+  "bateria_modelo": "Felicity Solar FLA48100, lítio ferro fosfato (LiFePO4), 48 V 100 Ah, 5 kWh utilizáveis, 6.000 ciclos",
+  "garantia_bateria": "5 anos*",
+  "garantia_hibrido": "Conforme o fabricante",
+  "nota_autonomia": "Autonomia estimada considerando os aparelhos essenciais gastando juntos, em média, cerca de 350 W (geladeira, lâmpadas, TV, internet e ventiladores): cerca de 13 horas com 1 bateria e cerca de 27 horas com 2 baterias. Com 1 bateria, o ideal é usar até 2.500 W ao mesmo tempo; com 2 baterias, até 5.000 W. Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria.",
+  "opcoes": [
+   {
+    "nome": "Opção 1",
+    "baterias": 1,
+    "kwh": 5,
+    "autonomia": "cerca de 12 horas do essencial",
+    "preco": 17750.0
+   },
+   {
+    "nome": "Opção 2",
+    "baterias": 2,
+    "kwh": 10,
+    "autonomia": "cerca de 24 horas do essencial",
+    "preco": 22810.0
+   }
+  ]
+ },
+ "especial": {
+  "titulo_curto": "Para a senhora",
+  "etiqueta": "Cliente Insolar há mais de 4 anos",
+  "titulo1": "DONA AURISTELA, MUITO OBRIGADO",
+  "titulo2": "POR CONTINUAR CONFIANDO NA INSOLAR!",
+  "intro": "É uma alegria receber o seu contato de novo e preparar mais esta proposta para a senhora. Há mais de 4 anos o seu sistema gera energia limpa todos os dias, e agora ele entra numa nova fase: com a bateria, a sua casa fica INDEPENDENTE DA CONCESSIONÁRIA NOS DIAS DE FALTA DE ENERGIA. Estamos à disposição para atendê-la a qualquer momento, sempre que a senhora precisar.",
+  "cabecalho": [
+   "",
+   "OPÇÃO 1",
+   "OPÇÃO 2"
+  ],
+  "tabela": [
+   [
+    "Baterias",
+    "1 × 5 kWh",
+    "2 × 5 kWh (10 kWh)"
+   ],
+   [
+    "Tempo com energia (essencial)",
+    "cerca de 12 horas",
+    "cerca de 24 horas"
+   ],
+   [
+    "Aparelhos ao mesmo tempo",
+    "até 2.500 W",
+    "até 5.000 W"
+   ],
+   [
+    "Inversor híbrido",
+    "Deye 5 kW",
+    "Deye 5 kW"
+   ],
+   [
+    "Valor à vista",
+    "R$ 17.750,00",
+    "R$ 22.810,00"
+   ]
+  ],
+  "aviso_titulo": "O QUE A SENHORA PRECISA SABER",
+  "aviso": [
+   "O seu sistema atual (8 placas de 550 W e o inversor Deye 4 kW) continua funcionando normalmente. O novo inversor híbrido trabalha junto com ele.",
+   "Quando a energia da rua cair, os circuitos essenciais da casa continuam ligados pela bateria. De dia, as placas seguem recarregando a bateria.",
+   "Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria, porque gastariam a carga muito rápido.",
+   "Incluímos a atualização do projeto na Coelba, para o seu sistema continuar regularizado."
+  ],
+  "miuda": "Autonomia estimada considerando os aparelhos essenciais gastando juntos, em média, cerca de 350 W (geladeira, lâmpadas, TV, internet e ventiladores): cerca de 13 horas com 1 bateria e cerca de 27 horas com 2 baterias. Com 1 bateria, o ideal é usar até 2.500 W ao mesmo tempo; com 2 baterias, até 5.000 W. Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria. *Garantia da bateria conforme o fabricante."
+ }
+}
