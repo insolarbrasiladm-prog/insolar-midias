@@ -248,16 +248,16 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     <div style="font-size:9.5pt;color:#C9D5EC;line-height:1.45">{{ e.intro }}</div>
     <div class="vidro canto" style="margin-top:5mm;padding:3mm 2mm">
       <table>
-        <tr><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">ITEM</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--neon)">ESTA PROPOSTA INSOLAR</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">PROPOSTA APRESENTADA PELO CLIENTE</th></tr>
+        <tr>{% set cab = e.cabecalho or ["ITEM","ESTA PROPOSTA INSOLAR","PROPOSTA APRESENTADA PELO CLIENTE"] %}<th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">{{ cab[0] }}</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--neon)">{{ cab[1] }}</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">{{ cab[2] }}</th></tr>
         {% for it, a, b in e.tabela %}<tr><td>{{ it }}</td><td><b style="color:#fff">{{ a }}</b></td><td style="color:#AFC0DE">{{ b }}</td></tr>{% endfor %}
       </table>
     </div>
-    <div class="vidro canto" style="margin-top:4mm;padding:4mm 5mm;border-color:rgba(249,185,30,.5)">
+    {% if e.perda %}<div class="vidro canto" style="margin-top:4mm;padding:4mm 5mm;border-color:rgba(249,185,30,.5)">
       <div class="eti" style="color:var(--gold)">{{ e.perda_titulo }}</div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:3mm">
         {% for v, r in e.perda %}<div style="text-align:center"><div style="font-family:'Inter Display';font-size:17pt;font-weight:700;color:var(--gold)">{{ v }}</div><div class="miuda" style="font-size:7.5pt;color:#C9D5EC">{{ r }}</div></div>{% endfor %}
       </div>
-    </div>
+    </div>{% endif %}
     <div style="margin-top:4mm;padding:4mm 5mm;border-radius:3mm;background:rgba(255,255,255,.96);color:#0E2A5E">
       <b style="font-size:7.5pt;letter-spacing:.14em;color:#c0392b">{{ e.aviso_titulo }}</b>
       {% for t in e.aviso %}<div style="font-size:8.8pt;line-height:1.45;margin-top:1.5mm">{{ t }}</div>{% endfor %}
