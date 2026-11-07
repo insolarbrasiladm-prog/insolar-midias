@@ -6,16 +6,16 @@
  "cidade": "Malhado, Ilhéus - BA",
  "tipo_ligacao": "Monofásica hoje (precisa passar para bifásica)",
  "telhado": "A confirmar na visita técnica",
- "consumo_medio": 833,
- "placas_qtd": 12,
+ "consumo_medio": 1133,
+ "placas_qtd": 16,
  "placa_w": 620,
  "placa_modelo": "Ronma 620 W N-Type bifacial, alta eficiência (23%)",
  "inversor_qtd": 1,
- "inversor_kw": 6,
- "inversor_modelo": "Inversor 6 kW 220 V ligado à rede (não é híbrido), com proteção contra arco elétrico — marca e modelo confirmados no fechamento, conforme disponibilidade",
+ "inversor_kw": 8,
+ "inversor_modelo": "Inversor 8 kW 220 V ligado à rede (não é híbrido), com proteção contra arco elétrico — marca e modelo confirmados no fechamento, conforme disponibilidade",
  "estrutura": "Estrutura em alumínio conforme o telhado, cabos solares e conectores",
  "garantia_inversor": "Conforme o fabricante",
- "preco": 16336.84,
+ "preco": 20842.11,
  "desconto_pix": 0.05,
  "financiamento": [
   [
@@ -60,8 +60,8 @@
   "titulo_curto": "Seu consumo",
   "etiqueta": "Sistema pensado para crescer",
   "titulo1": "Sua casa hoje,",
-  "titulo2": "os novos ar-condicionados e a casa do seu irmão.",
-  "intro": "Este sistema foi dimensionado somando três partes: o consumo atual da sua casa, o consumo previsto de 2 novos ar-condicionados de 12.000 BTUs e a energia para mandar créditos para a conta da casa do seu irmão, que já está no seu nome.",
+  "titulo2": "os ar-condicionados novos e a casa do seu irmão.",
+  "intro": "Este sistema foi dimensionado somando quatro partes: o consumo atual da sua casa, 2 novos ar-condicionados de 12.000 BTUs na sua casa, a energia que a casa do seu irmão usa hoje (conta de cerca de R$ 300, já no seu nome) e 2 novos ar-condicionados de 12.000 BTUs na casa dele.",
   "tabela": [
    [
     "Sua casa hoje",
@@ -69,28 +69,33 @@
     "média dos últimos 12 meses da conta"
    ],
    [
-    "2 ar-condicionados 12.000 BTUs",
+    "2 ar-condicionados na sua casa",
     "≈ 300 kWh/mês",
-    "previsão de uso informada"
+    "previsão: 12.000 BTUs cada"
    ],
    [
-    "Créditos para a casa do irmão",
+    "Casa do irmão hoje",
     "≈ 300 kWh/mês",
     "conta de cerca de R$ 300"
    ],
    [
+    "2 ar-condicionados na casa do irmão",
+    "≈ 300 kWh/mês",
+    "previsão: 12.000 BTUs cada"
+   ],
+   [
     "Total considerado",
-    "≈ 833 kWh/mês",
-    "12 placas × 620 W = 7,44 kWp ≈ 870 kWh/mês"
+    "≈ 1.133 kWh/mês",
+    "16 placas × 620 W = 9,92 kWp ≈ 1.161 kWh/mês"
    ]
   ],
   "aviso_titulo": "OBSERVAÇÕES IMPORTANTES",
   "aviso": [
    "Créditos para a casa do irmão: a outra conta precisa estar no mesmo CPF do titular do sistema e na área da Coelba. Mesmo recebendo os créditos, essa conta continua pagando a taxa mínima da Coelba (custo de disponibilidade), a iluminação pública e a parte da tarifa que a lei não deixa compensar.",
    "Padrão de entrada: hoje a ligação é monofásica. Para este sistema, o padrão precisa passar para bifásico. Esse serviço pode ser incluído neste orçamento mediante visita técnica, com valor informado à parte.",
-   "O consumo dos ar-condicionados é uma previsão: depende do modelo e das horas de uso."
+   "O consumo dos 4 ar-condicionados é uma previsão: depende do modelo e das horas de uso."
   ],
-  "miuda": "Geração estimada: cada 1 kWp instalado gera em média 117 kWh por mês na região, então 7,44 kWp × 117 = 870 kWh por mês. Previsão dos ar-condicionados: 12.000 BTUs inverter, cerca de 8 horas por dia, cerca de 150 kWh por mês cada; o consumo real depende do modelo e do uso. Valores de referência, sujeitos a análise técnica.",
+  "miuda": "Geração estimada: cada 1 kWp instalado gera em média 117 kWh por mês na região, então 9,92 kWp × 117 = 1.161 kWh por mês. Previsão dos ar-condicionados: 12.000 BTUs inverter, cerca de 8 horas por dia, cerca de 150 kWh por mês cada; o consumo real depende do modelo e do uso. Valores de referência, sujeitos a análise técnica.",
   "cabecalho": [
    "PARTE",
    "CONSUMO",
