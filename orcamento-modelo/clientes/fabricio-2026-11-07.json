@@ -101,5 +101,7 @@
    "CONSUMO",
    "DE ONDE VEM"
   ]
- }
+ },
+ "cartao_sem_juros": false,
+ "destaque_pix": "5% de desconto"
 }
