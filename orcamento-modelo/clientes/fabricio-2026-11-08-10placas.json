@@ -1,0 +1,108 @@
+{
+ "numero": "2026-004",
+ "data": "2026-11-08",
+ "validade_dias": 1,
+ "cliente": "Sr. Fabrício",
+ "cidade": "Malhado, Ilhéus - BA",
+ "tipo_ligacao": "Monofásica hoje (precisa passar para bifásica)",
+ "telhado": "A confirmar na visita técnica",
+ "consumo_medio": 1133,
+ "placas_qtd": 10,
+ "placa_w": 620,
+ "placa_modelo": "Ronma 620 W N-Type bifacial, alta eficiência (23%)",
+ "inversor_qtd": 1,
+ "inversor_kw": 5,
+ "inversor_modelo": "Deye 5 kW monofásico 220 V ligado à rede (não é híbrido), com proteção contra arco elétrico",
+ "estrutura": "Estrutura em alumínio conforme o telhado, cabos solares e conectores",
+ "garantia_inversor": "Conforme o fabricante",
+ "preco": 14052.63,
+ "desconto_pix": 0.05,
+ "financiamento": [
+  [
+   24,
+   0.0139
+  ],
+  [
+   36,
+   0.0139
+  ],
+  [
+   48,
+   0.0139
+  ],
+  [
+   60,
+   0.0139
+  ],
+  [
+   72,
+   0.0139
+  ],
+  [
+   84,
+   0.0139
+  ],
+  [
+   120,
+   0.0155
+  ]
+ ],
+ "data_preco_distribuidor": "06/11/2026",
+ "marcas": [
+  "Growatt",
+  "Deye",
+  "GoodWe",
+  "SMA",
+  "FoxESS",
+  "SAJ"
+ ],
+ "especial": {
+  "titulo_curto": "Seu consumo",
+  "etiqueta": "Opção mais econômica",
+  "titulo1": "Um sistema mais enxuto,",
+  "titulo2": "que cabe melhor no seu bolso.",
+  "intro": "Esta é uma opção menor que a proposta de 16 placas: 10 placas de 620 W (6,20 kWp), gerando cerca de 725 kWh por mês. Ela não cobre todo o consumo previsto com os 4 ar-condicionados e a casa do seu irmão; abaixo mostramos quanto ela atende.",
+  "tabela": [
+   [
+    "Sua casa hoje",
+    "≈ 233 kWh/mês",
+    "média dos últimos 12 meses da conta"
+   ],
+   [
+    "2 ar-condicionados na sua casa",
+    "≈ 300 kWh/mês",
+    "previsão: 12.000 BTUs cada"
+   ],
+   [
+    "Casa do irmão hoje",
+    "≈ 300 kWh/mês",
+    "conta de cerca de R$ 300"
+   ],
+   [
+    "2 ar-condicionados na casa do irmão",
+    "≈ 300 kWh/mês",
+    "previsão: 12.000 BTUs cada"
+   ],
+   [
+    "Total previsto",
+    "≈ 1.133 kWh/mês",
+    "este sistema gera ≈ 725 kWh/mês (cerca de 64%)"
+   ]
+  ],
+  "aviso_titulo": "OBSERVAÇÕES IMPORTANTES",
+  "aviso": [
+   "Créditos para a casa do irmão: a outra conta precisa estar no mesmo CPF do titular do sistema e na área da Coelba. Mesmo recebendo os créditos, essa conta continua pagando a taxa mínima da Coelba (custo de disponibilidade), a iluminação pública e a parte da tarifa que a lei não deixa compensar.",
+   "Padrão de entrada: hoje a ligação é monofásica. Para este sistema, o padrão precisa passar para bifásico. Esse serviço pode ser incluído neste orçamento mediante visita técnica, com valor informado à parte.",
+   "Esta opção gera cerca de 725 kWh por mês, cerca de 64% do consumo previsto. A parte que faltar continua sendo paga na conta da Coelba normalmente.",
+   "O consumo dos 4 ar-condicionados é uma previsão: depende do modelo e das horas de uso."
+  ],
+  "miuda": "Geração estimada: cada 1 kWp instalado gera em média 117 kWh por mês na região, então 6,20 kWp × 117 = 725 kWh por mês. Previsão dos ar-condicionados: 12.000 BTUs inverter, cerca de 8 horas por dia, cerca de 150 kWh por mês cada; o consumo real depende do modelo e do uso. Valores de referência, sujeitos a análise técnica.",
+  "cabecalho": [
+   "PARTE",
+   "CONSUMO",
+   "DE ONDE VEM"
+  ]
+ },
+ "cartao_sem_juros": false,
+ "destaque_pix": "5% de desconto"
+}
