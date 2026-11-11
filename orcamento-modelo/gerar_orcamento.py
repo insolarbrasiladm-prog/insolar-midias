@@ -6,7 +6,7 @@ import json, sys, subprocess, os, math, datetime
 from jinja2 import Template
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-GERACAO_KWH_POR_KWP = 117  # referência Ilhéus e região (estimativa)
+GERACAO_KWH_POR_KWP = 120  # decisão do Cristiano em 08/11/2026 (igual à planilha de preços; rever em dezembro)
 DESGASTE_ANO = 0.005
 
 def brl(v):
@@ -24,6 +24,7 @@ def calcular(d):
     c = {}
     kwp = d["placas_qtd"] * d["placa_w"] / 1000
     c["kwp"] = kwp
+    c["fator"] = GERACAO_KWH_POR_KWP
     c["geracao_mes"] = kwp * GERACAO_KWH_POR_KWP
     c["geracao_ano"] = c["geracao_mes"] * 12
     anos = [c["geracao_ano"] * (1 - DESGASTE_ANO) ** a for a in range(25)]
