@@ -8,12 +8,12 @@
  "telhado": "A confirmar na visita técnica",
  "consumo_medio": 2568,
  "placas_qtd": 35,
- "placa_w": 620,
- "placa_modelo": "Ronma 620 W N-Type bifacial, alta eficiência (23%)",
- "inversor_qtd": 1,
- "inversor_kw": 20,
- "inversor_modelo": "Inversor 20 kW ligado à rede (não é híbrido), com proteção contra arco elétrico — marca, modelo e tensão confirmados no fechamento, conforme a ligação do local da instalação (pode exigir padrão trifásico)",
- "estrutura": "Estrutura em alumínio conforme o telhado, cabos solares e conectores",
+ "placa_w": 630,
+ "placa_modelo": "Pulling Energy 630 W N-Type bifacial, moldura em fibra de vidro, alta eficiência (23,3%)",
+ "inversor_qtd": 2,
+ "inversor_kw": 7.5,
+ "inversor_modelo": "Solplanet ASW 7,5 kW monofásico 220 V, 3 MPPT, ligado à rede (não é híbrido), com proteção contra arco elétrico (AFCI)",
+ "estrutura": "Estrutura em alumínio Pratyc para telhado de fibrocimento, cabos solares e conectores (ajustada ao telhado na visita técnica)",
  "garantia_inversor": "Conforme o fabricante",
  "preco": 44326.32,
  "desconto_pix": 0.05,
@@ -47,7 +47,7 @@
    0.0155
   ]
  ],
- "data_preco_distribuidor": "Tabela Insolar de novembro/2026 (referência)",
+ "data_preco_distribuidor": "11/11/2026",
  "marcas": [
   "Growatt",
   "Deye",
@@ -106,7 +106,7 @@
    [
     "Total considerado",
     "≈ 2.568 kWh/mês",
-    "35 placas × 620 W = 21,70 kWp ≈ 2.604 kWh/mês"
+    "35 placas × 630 W = 22,05 kWp ≈ 2.646 kWh/mês"
    ]
   ],
   "aviso_titulo": "OBSERVAÇÕES IMPORTANTES",
@@ -114,9 +114,9 @@
    "Divisão dos créditos: pela regra da Coelba, os créditos só podem ir para contas no mesmo CPF (ou CNPJ) do titular do sistema, ou para uma geração compartilhada formada pelos familiares. Hoje as contas estão em nomes diferentes: a Insolar orienta a família e cuida da troca de titularidade junto à Coelba (serviço orçado à parte).",
    "Mesmo recebendo os créditos, cada conta continua pagando a taxa mínima da Coelba (custo de disponibilidade), a iluminação pública e a parte da tarifa que a lei não deixa compensar.",
    "O consumo dos 7 ar-condicionados é uma previsão: 12.000 BTUs inverter, cerca de 8 horas por dia, cerca de 150 kWh por mês cada. O consumo real depende do modelo e do uso.",
-   "Local da instalação e padrão de entrada: o local é definido com a família na visita técnica. Para um sistema deste tamanho, o padrão de entrada pode precisar passar para trifásico; a troca seguindo as normas da Coelba sai por + R$ 2.500,00."
+   "Local da instalação e padrão de entrada: o local é definido com a família na visita técnica. O sistema usa 2 inversores monofásicos de 220 V; se o padrão de entrada do local precisar ser trocado, a troca seguindo as normas da Coelba sai por + R$ 2.500,00."
   ],
-  "miuda": "Médias dos últimos 12 meses de cada conta (1.518 kWh/mês) + 7 ar-condicionados de 12.000 BTUs (7 × 150 = 1.050 kWh/mês) = 2.568 kWh/mês. Na conta de Maria Helena (Pontal) o histórico não aparece em números na foto: a média foi estimada pelo gráfico e será confirmada. Geração estimada: cada 1 kWp gera em média 120 kWh por mês na região, então 21,70 kWp × 120 = 2.604 kWh por mês. Valores de referência, sujeitos a análise técnica."
+  "miuda": "Médias dos últimos 12 meses de cada conta (1.518 kWh/mês) + 7 ar-condicionados de 12.000 BTUs (7 × 150 = 1.050 kWh/mês) = 2.568 kWh/mês. Na conta de Maria Helena (Pontal) o histórico não aparece em números na foto: a média foi estimada pelo gráfico e será confirmada. Geração estimada: cada 1 kWp gera em média 120 kWh por mês na região, então 22,05 kWp × 120 = 2.646 kWh por mês. Valores de referência, sujeitos a análise técnica."
  },
  "cartao_sem_juros": false,
  "destaque_pix": "5% de desconto"
