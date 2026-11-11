@@ -6,44 +6,117 @@
  "cidade": "Ilhéus e Salvador - BA",
  "tipo_ligacao": "7 contas (3 bifásicas e 1 monofásica em Ilhéus; 1 bifásica e 2 monofásicas em Salvador)",
  "telhado": "A confirmar na visita técnica",
- "consumo_medio": 1518,
- "placas_qtd": 21,
+ "consumo_medio": 2568,
+ "placas_qtd": 35,
  "placa_w": 620,
  "placa_modelo": "Ronma 620 W N-Type bifacial, alta eficiência (23%)",
  "inversor_qtd": 1,
- "inversor_kw": 12,
- "inversor_modelo": "Inversor 12 kW ligado à rede (não é híbrido), com proteção contra arco elétrico — marca, modelo e tensão confirmados no fechamento, conforme a ligação do local da instalação",
+ "inversor_kw": 20,
+ "inversor_modelo": "Inversor 20 kW ligado à rede (não é híbrido), com proteção contra arco elétrico — marca, modelo e tensão confirmados no fechamento, conforme a ligação do local da instalação (pode exigir padrão trifásico)",
  "estrutura": "Estrutura em alumínio conforme o telhado, cabos solares e conectores",
  "garantia_inversor": "Conforme o fabricante",
- "preco": 27989.47,
+ "preco": 44326.32,
  "desconto_pix": 0.05,
- "financiamento": [[24,0.0139],[36,0.0139],[48,0.0139],[60,0.0139],[72,0.0139],[84,0.0139],[120,0.0155]],
+ "financiamento": [
+  [
+   24,
+   0.0139
+  ],
+  [
+   36,
+   0.0139
+  ],
+  [
+   48,
+   0.0139
+  ],
+  [
+   60,
+   0.0139
+  ],
+  [
+   72,
+   0.0139
+  ],
+  [
+   84,
+   0.0139
+  ],
+  [
+   120,
+   0.0155
+  ]
+ ],
  "data_preco_distribuidor": "Tabela Insolar de novembro/2026 (referência)",
- "marcas": ["Growatt","Deye","GoodWe","SMA","FoxESS","SAJ"],
+ "marcas": [
+  "Growatt",
+  "Deye",
+  "GoodWe",
+  "SMA",
+  "FoxESS",
+  "SAJ"
+ ],
  "especial": {
   "titulo_curto": "Suas 7 contas",
   "etiqueta": "Um sistema para a família",
   "titulo1": "Sete contas de luz,",
   "titulo2": "um só sistema solar.",
-  "intro": "Este sistema foi dimensionado somando a média dos últimos 12 meses das 7 contas de luz da família, em Ilhéus e em Salvador. A energia é gerada em um só lugar e os créditos são divididos entre as contas pela Coelba.",
-  "cabecalho": ["CONTA","MÉDIA","ONDE"],
+  "intro": "Este sistema foi dimensionado somando a média dos últimos 12 meses das 7 contas de luz da família, em Ilhéus e em Salvador, mais 1 ar-condicionado novo de 12.000 BTUs em cada casa. A energia é gerada em um só lugar e os créditos são divididos entre as contas pela Coelba.",
+  "cabecalho": [
+   "CONTA",
+   "MÉDIA HOJE + 1 AR",
+   "ONDE"
+  ],
   "tabela": [
-   ["Maria Helena","≈ 388 kWh/mês","Pontal, Ilhéus"],
-   ["Aida","≈ 86 kWh/mês","Pontal, Ilhéus"],
-   ["Maria A.","≈ 156 kWh/mês","Pontal, Ilhéus"],
-   ["Anaracy","≈ 232 kWh/mês","Centro, Ilhéus"],
-   ["Maria A.","≈ 272 kWh/mês","Imbuí, Salvador"],
-   ["Maria Bernadete","≈ 165 kWh/mês","Imbuí, Salvador"],
-   ["Silvia","≈ 218 kWh/mês","Stiep, Salvador"],
-   ["Total considerado","≈ 1.518 kWh/mês","21 placas × 620 W = 13,02 kWp ≈ 1.562 kWh/mês"]
+   [
+    "Maria Helena",
+    "≈ 388 + 150 = 538 kWh/mês",
+    "Pontal, Ilhéus"
+   ],
+   [
+    "Aida",
+    "≈ 86 + 150 = 236 kWh/mês",
+    "Pontal, Ilhéus"
+   ],
+   [
+    "Maria A.",
+    "≈ 156 + 150 = 306 kWh/mês",
+    "Pontal, Ilhéus"
+   ],
+   [
+    "Anaracy",
+    "≈ 232 + 150 = 382 kWh/mês",
+    "Centro, Ilhéus"
+   ],
+   [
+    "Maria A.",
+    "≈ 272 + 150 = 422 kWh/mês",
+    "Imbuí, Salvador"
+   ],
+   [
+    "Maria Bernadete",
+    "≈ 165 + 150 = 315 kWh/mês",
+    "Imbuí, Salvador"
+   ],
+   [
+    "Silvia",
+    "≈ 218 + 150 = 368 kWh/mês",
+    "Stiep, Salvador"
+   ],
+   [
+    "Total considerado",
+    "≈ 2.568 kWh/mês",
+    "35 placas × 620 W = 21,70 kWp ≈ 2.604 kWh/mês"
+   ]
   ],
   "aviso_titulo": "OBSERVAÇÕES IMPORTANTES",
   "aviso": [
    "Divisão dos créditos: pela regra da Coelba, os créditos só podem ir para contas no mesmo CPF (ou CNPJ) do titular do sistema, ou para uma geração compartilhada formada pelos familiares. Hoje as contas estão em nomes diferentes: a Insolar orienta a família e cuida da troca de titularidade junto à Coelba (serviço orçado à parte).",
    "Mesmo recebendo os créditos, cada conta continua pagando a taxa mínima da Coelba (custo de disponibilidade), a iluminação pública e a parte da tarifa que a lei não deixa compensar.",
-   "Local da instalação e padrão de entrada: o local é definido com a família na visita técnica. Se o padrão de entrada precisar ser trocado (por exemplo, de bifásico para trifásico), a troca seguindo as normas da Coelba sai por + R$ 2.500,00."
+   "O consumo dos 7 ar-condicionados é uma previsão: 12.000 BTUs inverter, cerca de 8 horas por dia, cerca de 150 kWh por mês cada. O consumo real depende do modelo e do uso.",
+   "Local da instalação e padrão de entrada: o local é definido com a família na visita técnica. Para um sistema deste tamanho, o padrão de entrada pode precisar passar para trifásico; a troca seguindo as normas da Coelba sai por + R$ 2.500,00."
   ],
-  "miuda": "Médias dos últimos 12 meses de cada conta. Na conta de Maria Helena (Pontal) o histórico não aparece em números na foto: a média foi estimada pelo gráfico da conta e será confirmada. Geração estimada: cada 1 kWp gera em média 120 kWh por mês na região, então 13,02 kWp × 120 = 1.562 kWh por mês. Valores de referência, sujeitos a análise técnica."
+  "miuda": "Médias dos últimos 12 meses de cada conta (1.518 kWh/mês) + 7 ar-condicionados de 12.000 BTUs (7 × 150 = 1.050 kWh/mês) = 2.568 kWh/mês. Na conta de Maria Helena (Pontal) o histórico não aparece em números na foto: a média foi estimada pelo gráfico e será confirmada. Geração estimada: cada 1 kWp gera em média 120 kWh por mês na região, então 21,70 kWp × 120 = 2.604 kWh por mês. Valores de referência, sujeitos a análise técnica."
  },
  "cartao_sem_juros": false,
  "destaque_pix": "5% de desconto"
