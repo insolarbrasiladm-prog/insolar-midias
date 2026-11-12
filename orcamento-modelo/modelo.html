@@ -77,7 +77,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     <div style="display:flex;gap:4mm;margin-top:6mm">
       <div class="vidro canto kpi" style="flex:1.2"><div class="r">Preparada para</div><div class="v" style="font-size:16pt">{{ d.cliente }}</div><div class="s">{{ d.cidade }}</div></div>
 {% if d.bateria %}      <div class="vidro canto kpi" style="flex:1"><div class="r">Seu sistema atual</div><div class="v">{{ num(c.kwp,2) }}<small>kWp</small></div><div class="s">{{ d.placas_qtd }} placas de {{ d.placa_w }} W já instaladas</div></div>
-      <div class="vidro canto kpi" style="flex:1"><div class="r">Energia guardada</div><div class="v">{{ d.bateria.faixa_kwh }}<small>kWh</small></div><div class="s">{{ d.bateria.opcoes|length }} opções de bateria</div></div>
+      <div class="vidro canto kpi" style="flex:1"><div class="r">Energia guardada</div><div class="v">{{ d.bateria.faixa_kwh }}<small>kWh</small></div><div class="s">{% if d.bateria.opcoes|length > 1 %}{{ d.bateria.opcoes|length }} opções de bateria{% else %}1 bateria de lítio{% endif %}</div></div>
 {% else %}      <div class="vidro canto kpi" style="flex:1"><div class="r">Potência do sistema</div><div class="v">{{ num(c.kwp,2) }}<small>kWp</small></div><div class="s">{{ d.placas_qtd }} placas de {{ d.placa_w }} W</div></div>
       <div class="vidro canto kpi" style="flex:1"><div class="r">Geração estimada</div><div class="v">{{ num(c.geracao_mes) }}<small>kWh/mês</small></div><div class="s">média ao longo do ano</div></div>{% endif %}
     </div>
@@ -135,14 +135,14 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
       <div style="flex:1">
         <div class="kpis">
           <div class="vidro canto kpi"><div class="r">Seu sistema atual</div><div class="v">{{ num(c.kwp,2) }}<small>kWp</small></div><div class="s">{{ d.placas_qtd }} × {{ d.placa_w }} W · continua igual</div></div>
-          <div class="vidro canto kpi"><div class="r">Novo inversor híbrido</div><div class="v">{{ d.bateria.hibrido_kw }}<small>kW</small></div><div class="s">trabalha junto com o seu inversor atual</div></div>
+          <div class="vidro canto kpi"><div class="r">Novo inversor híbrido</div><div class="v">{% if d.bateria.hibrido_kw is number %}{{ d.bateria.hibrido_kw }}<small>kW</small>{% else %}{{ d.bateria.hibrido_kw }}{% endif %}</div><div class="s">trabalha junto com o seu inversor atual</div></div>
           {% for o in d.bateria.opcoes %}<div class="vidro canto kpi"><div class="r">{{ o.nome }}</div><div class="v">{{ o.kwh }}<small>kWh</small></div><div class="s">{{ o.baterias }} bateria{{ 's' if o.baterias > 1 else '' }} · {{ o.autonomia }}</div></div>{% endfor %}
         </div>
         <div class="vidro" style="margin-top:4mm;padding:2mm 1mm">
           <table>
             <tr><th>Equipamento</th><th>Descrição</th><th style="text-align:right">Qtd</th></tr>
             <tr><td>Inversor híbrido</td><td>{{ d.bateria.hibrido_modelo }}</td><td class="n">1</td></tr>
-            <tr><td>Bateria</td><td>{{ d.bateria.bateria_modelo }}</td><td class="n">1 ou 2</td></tr>
+            <tr><td>Bateria</td><td>{{ d.bateria.bateria_modelo }}</td><td class="n">{{ d.bateria.opcoes|map(attribute="baterias")|join(" ou ") }}</td></tr>
             <tr><td>Quadro essencial</td><td>Quadro separado para os circuitos essenciais, cabos, disjuntores e proteções da bateria</td><td class="n">1</td></tr>
             <tr><td>Já instalado</td><td>{{ d.inversor_modelo }} + {{ d.placas_qtd }} placas de {{ d.placa_w }} W</td><td class="n">—</td></tr>
           </table>
@@ -241,7 +241,7 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
   <div class="topo">{{ marca }}<span>05 · Seu investimento</span></div>
   <div class="cont">
     <span class="eti">Investimento completo</span>
-    <h2>Duas opções,<br>do projeto à <b>instalação.</b></h2>
+    <h2>{% if c.opcoes|length > 1 %}Duas opções,{% else %}Tudo incluído,{% endif %}<br>do projeto à <b>instalação.</b></h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:4mm">
       {% for o in c.opcoes %}<div class="vidro canto" style="padding:5mm 6mm;border-color:rgba(249,185,30,.5)">
         <span class="eti">{{ o.nome }} · {{ o.kwh }} kWh</span>
@@ -324,8 +324,8 @@ td.n { text-align:right; font-variant-numeric:tabular-nums; }
     <div style="font-size:9.5pt;color:#C9D5EC;line-height:1.45">{{ e.intro }}</div>
     <div class="vidro canto" style="margin-top:5mm;padding:3mm 2mm">
       <table>
-        <tr>{% set cab = e.cabecalho or ["ITEM","ESTA PROPOSTA INSOLAR","PROPOSTA APRESENTADA PELO CLIENTE"] %}<th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">{{ cab[0] }}</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--neon)">{{ cab[1] }}</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">{{ cab[2] }}</th></tr>
-        {% for it, a, b in e.tabela %}<tr><td>{{ it }}</td><td><b style="color:#fff">{{ a }}</b></td><td style="color:#AFC0DE">{{ b }}</td></tr>{% endfor %}
+        <tr>{% set cab = e.cabecalho or ["ITEM","ESTA PROPOSTA INSOLAR","PROPOSTA APRESENTADA PELO CLIENTE"] %}<th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">{{ cab[0] }}</th><th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--neon)">{{ cab[1] }}</th>{% if cab|length > 2 %}<th style="text-align:left;padding:2mm 3mm;font-size:7pt;letter-spacing:.14em;color:var(--mut)">{{ cab[2] }}</th>{% endif %}</tr>
+        {% for linha in e.tabela %}<tr><td>{{ linha[0] }}</td><td><b style="color:#fff">{{ linha[1] }}</b></td>{% if linha|length > 2 %}<td style="color:#AFC0DE">{{ linha[2] }}</td>{% endif %}</tr>{% endfor %}
       </table>
     </div>
     {% if e.perda %}<div class="vidro canto" style="margin-top:4mm;padding:4mm 5mm;border-color:rgba(249,185,30,.5)">

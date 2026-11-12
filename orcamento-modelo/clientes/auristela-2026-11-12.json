@@ -1,0 +1,123 @@
+{
+ "numero": "2026-006",
+ "data": "2026-11-12",
+ "validade_dias": 3,
+ "cliente": "Dona Auristela",
+ "cidade": "Ilhéus - BA",
+ "tipo_ligacao": "Monofásica 220 V",
+ "telhado": "já instalado",
+ "consumo_medio": null,
+ "placas_qtd": 8,
+ "placa_w": 550,
+ "placa_modelo": "Placas de 550 W (já instaladas)",
+ "inversor_qtd": 1,
+ "inversor_kw": 4,
+ "inversor_modelo": "Inversor Deye 4 kW monofásico 220 V (já instalado)",
+ "estrutura": "já instalada",
+ "garantia_inversor": "Conforme o fabricante",
+ "preco": 15750.0,
+ "desconto_pix": 0.0,
+ "cartao_sem_juros": false,
+ "financiamento": [
+  [
+   24,
+   0.0139
+  ],
+  [
+   36,
+   0.0139
+  ],
+  [
+   48,
+   0.0139
+  ],
+  [
+   60,
+   0.0139
+  ],
+  [
+   72,
+   0.0139
+  ],
+  [
+   84,
+   0.0139
+  ],
+  [
+   120,
+   0.0155
+  ]
+ ],
+ "data_preco_distribuidor": "11/11/2026",
+ "marcas": [
+  "Growatt",
+  "Deye",
+  "GoodWe",
+  "SMA",
+  "FoxESS",
+  "SAJ"
+ ],
+ "bateria": {
+  "faixa_kwh": "5",
+  "hibrido_kw": "SAJ",
+  "hibrido_modelo": "Inversor híbrido SAJ de baixa tensão (48 V), monofásico 220 V, com acoplamento ao seu inversor atual",
+  "bateria_modelo": "SAJ B3-5.0KWH-LV, bateria de lítio 48 V 100 Ah, 5 kWh",
+  "garantia_bateria": "Conforme o fabricante",
+  "garantia_hibrido": "Conforme o fabricante",
+  "nota_autonomia": "Autonomia estimada considerando os aparelhos essenciais gastando juntos, em média, cerca de 350 W (geladeira, lâmpadas, TV, internet e ventiladores): cerca de 12 horas com a bateria de 5 kWh. O ideal é usar até 2.500 W ao mesmo tempo. Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria. O inversor Deye 4 kW atual continua instalado e funcionando. Frete dos equipamentos incluído.",
+  "opcoes": [
+   {
+    "nome": "Bateria + híbrido",
+    "baterias": 1,
+    "kwh": 5,
+    "autonomia": "cerca de 12 horas do essencial",
+    "preco": 15750.0
+   }
+  ]
+ },
+ "especial": {
+  "titulo_curto": "Para a senhora",
+  "etiqueta": "Cliente Insolar há mais de 3 anos",
+  "titulo1": "DONA AURISTELA, MUITO OBRIGADO",
+  "titulo2": "POR CONTINUAR CONFIANDO NA INSOLAR!",
+  "intro": "É uma alegria receber o seu contato de novo e preparar mais esta proposta para a senhora. Há mais de 3 anos o seu sistema gera energia limpa todos os dias, e agora ele entra numa nova fase: com a bateria, a sua casa fica INDEPENDENTE DA CONCESSIONÁRIA NOS DIAS DE FALTA DE ENERGIA. Estamos à disposição para atendê-la a qualquer momento, sempre que a senhora precisar.",
+  "cabecalho": [
+   "",
+   "SUA PROPOSTA"
+  ],
+  "tabela": [
+   [
+    "Bateria",
+    "1 × 5 kWh (lítio, 48 V)"
+   ],
+   [
+    "Tempo com energia (essencial)",
+    "cerca de 12 horas"
+   ],
+   [
+    "Aparelhos ao mesmo tempo",
+    "até 2.500 W"
+   ],
+   [
+    "Inversor híbrido",
+    "SAJ 48 V"
+   ],
+   [
+    "Inversor atual",
+    "Deye 4 kW continua no lugar"
+   ],
+   [
+    "Valor à vista",
+    "R$ 15.750,00"
+   ]
+  ],
+  "aviso_titulo": "O QUE A SENHORA PRECISA SABER",
+  "aviso": [
+   "O seu sistema atual (8 placas de 550 W e o inversor Deye 4 kW) continua funcionando normalmente. O novo inversor híbrido SAJ trabalha junto com ele.",
+   "Quando a energia da rua cair, os circuitos essenciais da casa continuam ligados pela bateria. De dia, as placas seguem recarregando a bateria.",
+   "Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria, porque gastariam a carga muito rápido.",
+   "Incluímos a atualização do projeto na Coelba, para o seu sistema continuar regularizado."
+  ],
+  "miuda": "Autonomia estimada considerando os aparelhos essenciais gastando juntos, em média, cerca de 350 W (geladeira, lâmpadas, TV, internet e ventiladores): cerca de 12 horas com a bateria de 5 kWh. O ideal é usar até 2.500 W ao mesmo tempo. Ar-condicionado, chuveiro elétrico e ferro de passar ficam fora do circuito da bateria. O inversor Deye 4 kW atual continua instalado e funcionando. Frete dos equipamentos incluído. Garantia da bateria e do inversor híbrido conforme o fabricante."
+ }
+}
