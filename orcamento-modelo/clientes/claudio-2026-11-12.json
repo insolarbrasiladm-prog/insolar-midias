@@ -1,0 +1,60 @@
+{
+ "numero": "2026-007",
+ "data": "2026-11-12",
+ "validade_dias": 3,
+ "cliente": "Sr. Cláudio",
+ "cidade": "Iguape, Ilhéus - BA",
+ "tipo_ligacao": "A confirmar na visita técnica",
+ "telhado": "A confirmar na visita técnica",
+ "consumo_medio": null,
+ "placas_qtd": 5,
+ "placa_w": 620,
+ "placa_modelo": "Painel solar 620 W N-Type bifacial, alta eficiência",
+ "inversor_qtd": 1,
+ "inversor_kw": 3,
+ "inversor_modelo": "Inversor 3 kW monofásico 220 V ligado à rede (marca conforme disponibilidade)",
+ "estrutura": "Estrutura em alumínio conforme o telhado, cabos solares e conectores",
+ "garantia_inversor": "Conforme o fabricante",
+ "preco": 8290.0,
+ "desconto_pix": 0.05,
+ "financiamento": [
+  [
+   24,
+   0.0139
+  ],
+  [
+   36,
+   0.0139
+  ],
+  [
+   48,
+   0.0139
+  ],
+  [
+   60,
+   0.0139
+  ],
+  [
+   72,
+   0.0139
+  ],
+  [
+   84,
+   0.0139
+  ],
+  [
+   120,
+   0.0155
+  ]
+ ],
+ "data_preco_distribuidor": "12/11/2026 (tabela de referência da Insolar)",
+ "marcas": [
+  "Growatt",
+  "Deye",
+  "GoodWe",
+  "SMA",
+  "FoxESS",
+  "SAJ"
+ ],
+ "cartao_sem_juros": false
+}
