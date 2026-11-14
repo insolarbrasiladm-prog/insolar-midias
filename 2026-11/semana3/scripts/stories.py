@@ -16,25 +16,29 @@ def marca(c, y):
     d.text((x + S.width + 16, y + 50), 'BRASIL · ENERGIA SOLAR', font=f2, fill=GOLD)
 
 BOMDIA = [
-    ('16', UP + 'IMG_4770.mov', 0.5, False, 'Bom dia!', 'As misericórdias do Senhor se renovam a cada manhã.', 'Lamentações 3:22-23'),
-    ('17', P, 50, True, 'Bom dia!', 'Este é o dia que o Senhor fez; alegremo-nos e regozijemo-nos nele.', 'Salmos 118:24'),
-    ('18', UP + 'IMG_4770.mov', 41, False, 'Bom dia!', 'Os que esperam no Senhor renovam as suas forças.', 'Isaías 40:31'),
-    ('19', P, 2, True, 'Bom dia!', 'Tudo posso naquele que me fortalece.', 'Filipenses 4:13'),
-    ('20', UP + 'IMG_4770.mov', 10, False, 'Bom dia!', 'Entrega o teu caminho ao Senhor, confia nele, e ele tudo fará.', 'Salmos 37:5'),
-    ('21', UP + 'IMG_4770.mov', 20, False, 'Bom sábado!', 'Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos.', 'Provérbios 16:3'),
-    ('22', P, 28, True, 'Bom domingo!', 'Se alguém está em Cristo, é nova criação. As coisas antigas já passaram.', '2 Coríntios 5:17'),
+    ('16', UP + 'IMG_4770.mov', 0, False, 'Bom dia!', 'As misericórdias do Senhor se renovam a cada manhã.', 'Lamentações 3:22-23', 'baixo'),
+    ('17', P, 8, True, 'Bom dia!', 'Este é o dia que o Senhor fez; alegremo-nos e regozijemo-nos nele.', 'Salmos 118:24', 'cima'),
+    ('18', UP + 'IMG_4770.mov', 13, False, 'Bom dia!', 'Os que esperam no Senhor renovam as suas forças.', 'Isaías 40:31', 'cima'),
+    ('19', P, 30, True, 'Bom dia!', 'Tudo posso naquele que me fortalece.', 'Filipenses 4:13', 'baixo'),
+    ('20', UP + 'IMG_4770.mov', 22, False, 'Bom dia!', 'Entrega o teu caminho ao Senhor, confia nele, e ele tudo fará.', 'Salmos 37:5', 'baixo'),
+    ('21', P, 55, True, 'Bom sábado!', 'Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos.', 'Provérbios 16:3', 'cima'),
+    ('22', UP + 'IMG_4772.mov', 25, False, 'Bom domingo!', 'Se alguém está em Cristo, é nova criação. As coisas antigas já passaram.', '2 Coríntios 5:17', 'cima'),
 ]
 
-def bomdia(dia, src, ss, land, tit, txt, ref):
+def bomdia(dia, src, ss, land, tit, txt, ref, pos='baixo'):
+    uso('bd'+dia, src, ss, 7)
     c = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     g = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dg = ImageDraw.Draw(g)
-    for y in range(820, H):
-        dg.line([(0, y), (W, y)], fill=(5, 10, 25, min(215, int((y - 820) * 0.42))))
+    if pos == 'baixo':
+        for y in range(820, H): dg.line([(0, y), (W, y)], fill=(5, 10, 25, min(215, int((y - 820) * 0.42))))
+    else:
+        for y in range(0, 1100): dg.line([(0, y), (W, y)], fill=(5, 10, 25, min(215, int((1100 - y) * 0.42))))
     c.alpha_composite(g); d = ImageDraw.Draw(c)
+    off = 0 if pos == 'baixo' else -760
     fr = F('Inter-Bold.otf', 30); ft = FL(104); fv = FL(62)
-    centro(d, ref.upper(), 960, fr, GOLD)
-    centro(d, tit, 1010, ft, WHITE)
-    y = 1170
+    centro(d, ref.upper(), 960 + off, fr, GOLD)
+    centro(d, tit, 1010 + off, ft, WHITE)
+    y = 1170 + off
     for ln in wrap(d, '“' + txt + '”', fv, 900):
         centro(d, ln, y, fv, WHITE); y += 82
     y += 30
@@ -96,6 +100,7 @@ def tempo_prova(dia, foto, local):
     o = OUT + f'story_tempoprova_{dia}-11.png'; c.convert('RGB').save(o, quality=92); print('OK', o)
 
 def chamada(dia, robo, t1, t2):
+    uso('ch'+dia, robo)
     c = Image.open(robo).convert('RGB').resize((W, H), Image.LANCZOS).convert('RGBA')
     g = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dg = ImageDraw.Draw(g)
     for y in range(1050, H): dg.line([(0, y), (W, y)], fill=(5, 10, 25, min(225, int((y - 1050) * 0.6))))
@@ -106,6 +111,7 @@ def chamada(dia, robo, t1, t2):
     o = OUT + f'story_chamada_{dia}-11.png'; c.convert('RGB').save(o, quality=92); print('OK', o)
 
 def feed_card(path, img, titulo=None, sub=None, robo_full=False, last=False):
+    if img: uso(os.path.basename(os.path.dirname(path)), img)
     w, h = 1080, 1350
     if robo_full:
         im = Image.open(img).convert('RGB'); r = w / im.width
@@ -140,19 +146,35 @@ def feed_card(path, img, titulo=None, sub=None, robo_full=False, last=False):
     d.rectangle([0, h - 10, w, h], fill=GOLD)
     c.convert('RGB').save(path, quality=92)
 
+def qa_card(path, pergunta, resposta, n):
+    w, h = 1080, 1350
+    c = Image.new('RGBA', (w, h), NAVY + (255,)); d = ImageDraw.Draw(c)
+    d.text((80, 90), f'{n}/5', font=F('Inter-Bold.otf', 34), fill=GOLD)
+    y = 260
+    for ln in wrap(d, pergunta, F('InterDisplay-Black.otf', 76), 920):
+        d.text((80, y), ln, font=F('InterDisplay-Black.otf', 76), fill=WHITE); y += 92
+    y += 40; d.rectangle([80, y, 200, y + 10], fill=GOLD); y += 60
+    for ln in wrap(d, resposta, F('Inter-Bold.otf', 48), 920):
+        d.text((80, y), ln, font=F('Inter-Bold.otf', 48), fill=(225, 232, 250)); y += 66
+    c.alpha_composite(S, (80, h - 150)); d.text((80 + S.width + 14, h - 140), 'INSOLAR BRASIL', font=F('InterDisplay-Black.otf', 36), fill=WHITE)
+    d.rectangle([0, h - 10, w, h], fill=GOLD)
+    c.convert('RGB').save(path, quality=92)
+
 if __name__ == '__main__':
-    for b in BOMDIA:
-        if b[0] in sys.argv[1:] or not sys.argv[1:]: bomdia(*b)
-    tempo_prova('16', OBRA + 'obra-ilheus-metalico-serra.jpg', 'Ilhéus · Telhado metálico')
-    tempo_prova('19', OBRA + 'obra-jequie-solo-eucalipto.jpg', 'Jequié · Usina no solo')
+    import shutil
+    for b in BOMDIA: bomdia(*b)
     chamada('17', REPO + 'robo-oficial/poses/joinha.png', 'Conta de luz chegou alta?', 'A Insolar faz a simulação do seu sistema.')
-    os.makedirs(OUT + 'feed16', exist_ok=True); os.makedirs(OUT + 'feed20', exist_ok=True)
-    feed_card(OUT + 'feed16/1.jpg', REPO + 'robo-oficial/poses/entrega_documentos_casal.png', 'Obras reais da Insolar', 'Arraste e veja ›', robo_full=True)
-    for i, f in enumerate(['obra-ilheus-ceramica-aerea.jpg', 'obra-ilheus-residencial-aerea.jpg', 'obra-ilheus-metalico-aerea.jpg', 'obra-ilheus-residencial-aerea-2.jpg', 'obra-ilheus-ceramica-aeroporto.jpg'], 2):
-        feed_card(OUT + f'feed16/{i}.jpg', OBRA + f)
-    feed_card(OUT + 'feed16/7.jpg', REPO + 'robo-oficial/poses/mao_peito.png', 'Sua casa pode ser a próxima.', None, robo_full=True, last=True)
+    for d_ in ('feed16', 'feed20'): shutil.rmtree(OUT + d_, ignore_errors=True); os.makedirs(OUT + d_)
+    feed_card(OUT + 'feed16/1.jpg', REPO + 'robo-oficial/poses/entrega_documentos_casal.png', '5 perguntas que todo cliente faz', 'Arraste e veja ›', robo_full=True)
+    QA = [('A garantia das placas é de quanto tempo?', '25 anos de garantia de desempenho. Os inversores têm de 5 a 12 anos, conforme o fabricante.'),
+          ('Como posso pagar?', 'À vista, no cartão ou financiado. A gente te mostra as opções no atendimento.'),
+          ('Precisa limpar as placas?', 'Sim. A limpeza feita do jeito certo ajuda o sistema a render melhor. A Insolar faz esse serviço.'),
+          ('Dá para colocar bateria?', 'Dá. Com bateria, a energia do sol fica guardada para quando você precisar.'),
+          ('Vocês atendem a minha cidade?', 'Ilhéus, Itabuna e cidades do sul da Bahia, além de outras regiões do estado. Chame a gente.')]
+    for i, (q, r) in enumerate(QA, 2): qa_card(OUT + f'feed16/{i}.jpg', q, r, i - 1)
+    feed_card(OUT + 'feed16/7.jpg', REPO + 'robo-oficial/poses/mao_peito.png', 'Ficou alguma dúvida?', 'Fale com a Insolar', robo_full=True, last=True)
     feed_card(OUT + 'feed20/1.jpg', REPO + 'robo-oficial/poses/apontando.png', 'A Insolar está em toda a Bahia', 'Arraste e veja ›', robo_full=True)
-    for i, f in enumerate(['obra-jequie-solo-eucalipto.jpg', 'obra-marau-usina-solo.jpg', 'obra-salvador-telhado-metalico.jpg', 'obra-ilheus-metalico-serra.jpg', 'obra-ilheus-residencial-aerea-3.jpg'], 2):
+    for i, f in enumerate(['obra-jequie-solo-eucalipto.jpg', 'obra-marau-usina-solo.jpg', 'obra-salvador-telhado-metalico.jpg'], 2):
         feed_card(OUT + f'feed20/{i}.jpg', OBRA + f)
-    feed_card(OUT + 'feed20/7.jpg', REPO + 'robo-oficial/poses/acenando.png', 'De Ilhéus para toda a Bahia.', 'Mais de 7 anos de experiência', robo_full=True, last=True)
-    print('feeds OK')
+    feed_card(OUT + 'feed20/5.jpg', REPO + 'robo-oficial/poses/acenando.png', 'De Ilhéus para toda a Bahia.', 'Mais de 7 anos de experiência', robo_full=True, last=True)
+    print('stories e feeds OK')

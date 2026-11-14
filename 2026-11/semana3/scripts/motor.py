@@ -32,7 +32,13 @@ def simbolo(h):
     bb = s.getbbox(); s = s.crop(bb)
     return s.resize((int(s.width * h / s.height), h), Image.LANCZOS)
 
+USOS = []
+def uso(post, src, ss=None, dur=None):
+    USOS.append({'post': post, 'src': os.path.basename(src), 'ss': ss, 'dur': dur})
+    json.dump(USOS, open(TMP + 'usos_' + str(os.getpid()) + '.json', 'w'))
+
 def run(cmd):
+    if os.environ.get("SECO"): return
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:
         print(' '.join(cmd)); print(r.stderr[-2000:]); sys.exit(1)
@@ -72,6 +78,7 @@ def overlay_png(name, items):
 
 # ---------- segmentos ----------
 def seg_video(name, src, ss, dur, txt_items, pan='x', land=False, blur_box=None):
+    uso(name[:-1], src, ss, dur)
     ov = overlay_png(name + '_ov', txt_items)
     o = TMP + name + '.mp4'
     if land:
@@ -102,9 +109,12 @@ def prep_img(src, blur_box=None):
         bg.paste(fg, (0, (th - fg.height) // 2 - 200)); im2 = bg
     else:
         im2 = im2.crop(((im2.width - tw) // 2, (im2.height - th) // 2, (im2.width - tw) // 2 + tw, (im2.height - th) // 2 + th))
-    p = TMP + os.path.basename(src) + '_9x16.jpg'; im2.save(p, quality=92); return p
+    p = TMP + os.path.basename(src) + '_9x16.jpg'
+    if not os.environ.get('SECO'): im2.save(p, quality=92)
+    return p
 
 def seg_img(name, src, dur, txt_items, zoom='in', blur_box=None):
+    uso(name[:-1], src)
     ov = overlay_png(name + '_ov', txt_items)
     p = prep_img(src, blur_box)
     n = int(dur * 30)
@@ -137,11 +147,11 @@ def seg_final(name, oferta='BLACK NOVEMBRO · ESCOLHA O SEU PRESENTE', dur=2.6):
 def juntar(nome, segs, trilha):
     lst = TMP + nome + '_lista.txt'
     open(lst, 'w').write(''.join(f"file '{s}'\n" for s in segs))
-    tot = sum(float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', s], capture_output=True, text=True).stdout) for s in segs)
+    tot = 1 if os.environ.get('SECO') else sum(float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', s], capture_output=True, text=True).stdout) for s in segs)
     o = OUT + nome + '.mp4'
     run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-stream_loop', '-1', '-i', trilha,
          '-filter_complex', f"[1:a]atrim=0:{tot},afade=t=in:d=0.3,afade=t=out:st={tot-0.9}:d=0.9,volume=0.9[a]",
          '-map', '0:v', '-map', '[a]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '21', '-c:a', 'aac', '-b:a', '128k',
          '-t', str(tot), '-movflags', '+faststart', o])
-    print('OK', o, round(tot, 1), 's')
+    if not os.environ.get('SECO'): print('OK', o, round(tot, 1), 's')
     return o
