@@ -6,7 +6,7 @@ def F(n,s): return ImageFont.truetype(FD+n,s)
 W,H=1080,1350
 BG=(246,249,253); WHITE=(11,31,68); SOFT=(55,70,98); GOLD=(226,96,0); ORANGE=(255,122,26); GREEN=(0,140,62)
 #LOGO não usado
-VAL='04/11 a 07/11/2026'
+VAL='14/11 a 21/11/2026'
 os.makedirs('out/empresas_claro',exist_ok=True)
 
 def brl(v,cent=True):
