@@ -48,7 +48,10 @@ def bomdia(dia, src, ss, land, tit, txt, ref, pos='baixo'):
     marca(c, 1640)
     ov = TMP + f'bd{dia}.png'; c.save(ov)
     o = OUT + f'story_bomdia_{dia}-11.mp4'; dur = 7
-    if land:
+    if src.endswith('.png'):
+        n = dur * 30
+        vf = (f"[0:v]scale=2160:3840:force_original_aspect_ratio=increase,crop=2160:3840,zoompan=z='1+0.08*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={n}:s=1080x1920:fps=30[v0];[v0][1:v]overlay=0:0,fps=30,format=yuv420p")
+    elif land:
         vf = (f"[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30:3[bg];"
               f"[b]scale=1260:-2,crop=1080:ih:'(iw-1080)*t/{dur}':0[fg];[bg][fg]overlay=0:180[v0];[v0][1:v]overlay=0:0,fps=30,format=yuv420p")
     else:
@@ -57,7 +60,7 @@ def bomdia(dia, src, ss, land, tit, txt, ref, pos='baixo'):
     run(['ffmpeg', '-v', 'error', '-y', '-ss', str(ss), '-t', str(dur), '-i', src, '-loop', '1', '-i', ov, '-i', SOM,
          '-filter_complex', vf + f";[2:a]atrim=0:{dur},afade=t=in:d=0.4,afade=t=out:st={dur-1}:d=1[a]",
          '-map', '[v0]' if False else '0:v', '-t', str(dur)] if False else
-        ['ffmpeg', '-v', 'error', '-y', '-ss', str(ss), '-t', str(dur), '-i', src, '-loop', '1', '-i', ov, '-i', SOM,
+        ['ffmpeg', '-v', 'error', '-y'] + (['-loop', '1', '-t', str(dur), '-i', src] if src.endswith('.png') else ['-ss', str(ss), '-t', str(dur), '-i', src]) + [ '-loop', '1', '-i', ov, '-i', SOM,
          '-filter_complex', vf.replace('format=yuv420p', 'format=yuv420p[v]') + f";[2:a]atrim=0:{dur},afade=t=in:d=0.4,afade=t=out:st={dur-1}:d=1[a]",
          '-map', '[v]', '-map', '[a]', '-t', str(dur), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '21', '-c:a', 'aac', '-movflags', '+faststart', o])
     print('OK', o)
@@ -159,6 +162,28 @@ def qa_card(path, pergunta, resposta, n):
     c.alpha_composite(S, (80, h - 150)); d.text((80 + S.width + 14, h - 140), 'INSOLAR BRASIL', font=F('InterDisplay-Black.otf', 36), fill=WHITE)
     d.rectangle([0, h - 10, w, h], fill=GOLD)
     c.convert('RGB').save(path, quality=92)
+
+B2 = '/home/claude/semana16/robo2/'
+BOMDIA2 = [
+    ('23', B2 + 'bd_estrada.png', 0, False, 'Bom dia!', 'Eu sei os planos que tenho para vocês: planos de dar a vocês esperança e um futuro.', 'Jeremias 29:11', 'cima'),
+    ('24', B2 + 'bd_rio.png', 0, False, 'Bom dia!', 'Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia.', 'Salmos 46:1', 'baixo'),
+    ('25', B2 + 'bd_ipe.png', 0, False, 'Bom dia!', 'O choro pode durar uma noite, mas a alegria vem pela manhã.', 'Salmos 30:5', 'cima'),
+    ('26', B2 + 'bd_janela.png', 0, False, 'Bom dia!', 'Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei.', 'Mateus 11:28', 'baixo'),
+    ('27', B2 + 'bd_jangada.png', 0, False, 'Bom dia!', 'O Senhor é o meu pastor; nada me faltará.', 'Salmos 23:1', 'cima'),
+    ('28', B2 + 'bd_folha.png', 0, False, 'Bom sábado!', 'Todas as coisas cooperam para o bem daqueles que amam a Deus.', 'Romanos 8:28', 'baixo'),
+    ('29', B2 + 'bd_cacau.png', 0, False, 'Bom domingo!', 'A fé é a certeza daquilo que esperamos.', 'Hebreus 11:1', 'baixo'),
+    ('30', B2 + 'bd_cafe.png', 0, False, 'Bom dia!', 'Confirma, ó Senhor, a obra das nossas mãos.', 'Salmos 90:17', 'cima'),
+]
+
+if __name__ == '__main__' and sys.argv[1:2] == ['semana2']:
+    for b in BOMDIA2:
+        if b[0] in ('29', '30') or 'todos' in sys.argv: bomdia(*b)
+    os.makedirs(OUT + 'feed25', exist_ok=True); os.makedirs(OUT + 'feed27', exist_ok=True)
+    uso('fe25', B2 + 'feed25_robo_carregador.png'); uso('fe27', B2 + 'feed27_robo_presente_casa.png')
+    for b in BOMDIA2: uso('bd' + b[0], b[1])
+    if False: feed_card(OUT + 'feed25/1.jpg', B2 + 'feed25_robo_carregador.png', 'Tem carro elétrico? No Black Novembro, a instalação do carregador é presente*', 'Sistemas acima de 30 placas', robo_full=True, last=True)
+    if False: feed_card(OUT + 'feed27/1.jpg', B2 + 'feed27_robo_presente_casa.png', 'É hoje: Black Friday Insolar', 'Traga o seu melhor preço: nós cobrimos*', robo_full=True, last=True)
+    print('semana 2 OK'); sys.exit()
 
 if __name__ == '__main__':
     import shutil
